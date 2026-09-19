@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>Python2_DSA_Roadmap</title><meta charset="utf-8"/><link rel="preload" href="../index-bb6c1746.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 5"/><meta property="og:title" content="Python2_DSA_Roadmap"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Python2_DSA_Roadmap"/><meta name="twitter:description" content="Python 2 Data Structures &amp; Algorithms Roadmap (Assuming basic Python 2 knowledge) WeekTopicSub‑topicsTime Estimate1Review &amp; SetupPython 2 syntax refresher, basic I/O, installing pip/virtualenv, running scripts4 h2Complexity AnalysisBig‑O, time/space, amortized analysis, best/average/worst ca..."/><meta property="og:description" content="Python 2 Data Structures &amp; Algorithms Roadmap (Assuming basic Python 2 knowledge) WeekTopicSub‑topicsTime Estimate1Review &amp; SetupPython 2 syntax refresher, basic I/O, installing pip/virtualenv, running scripts4 h2Complexity AnalysisBig‑O, time/space, amortized analysis, best/average/worst ca..."/><meta property="og:image:alt" content="Python 2 Data Structures &amp; Algorithms Roadmap (Assuming basic Python 2 knowledge) WeekTopicSub‑topicsTime Estimate1Review &amp; SetupPython 2 syntax refresher, basic I/O, installing pip/virtualenv, running scripts4 h2Complexity AnalysisBig‑O, time/space, amortized analysis, best/average/worst ca..."/><meta property="og:image" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/data_structure/python2_dsa_roadmap"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/data_structure/python2_dsa_roadmap"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Python 2 Data Structures &amp; Algorithms Roadmap (Assuming basic Python 2 knowledge) WeekTopicSub‑topicsTime Estimate1Review &amp; SetupPython 2 syntax refresher, basic I/O, installing pip/virtualenv, running scripts4 h2Complexity AnalysisBig‑O, time/space, amortized analysis, best/average/worst ca..."/><meta name="generator" content="Quartz"/><link href="../index-bb6c1746.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-7262b5a7.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/></head><body data-slug="data_structure/python2_dsa_roadmap" data-basepath><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Quartz 5</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="Search" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something..." placeholder="Search for something..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="Dark mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="Reader mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-5" aria-label="Explorer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-5" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../data_structure/">Data_Structure</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Python2_DSA_Roadmap</a></div></nav><h1 class="article-title">Python2_DSA_Roadmap</h1><p show-comma="true" class="content-meta"><time datetime="2026-09-19T10:52:42.357Z">Sep 19, 2026</time><span>11 min read</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><p>Python 2 Data Structures &amp; Algorithms Roadmap (Assuming basic Python 2 knowledge)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Week</th><th>Topic</th><th>Sub‑topics</th><th>Time Estimate</th></tr></thead><tbody><tr><td>1</td><td><strong>Review &amp; Setup</strong></td><td>Python 2 syntax refresher, basic I/O, installing pip/virtualenv, running scripts</td><td>4 h</td></tr><tr><td>2</td><td><strong>Complexity Analysis</strong></td><td>Big‑O, time/space, amortized analysis, best/average/worst case</td><td>3 h</td></tr><tr><td>3</td><td><strong>Arrays &amp; Lists</strong></td><td>List operations, slicing, list comprehensions, 2‑D lists, performance pitfalls</td><td>4 h</td></tr><tr><td>4</td><td><strong>Strings</strong></td><td>Immutability, common methods, formatting, regex basics, Unicode handling in Py2</td><td>3 h</td></tr><tr><td>5</td><td><strong>Tuples &amp; Sets</strong></td><td>Tuple unpacking, frozenset, set algebra, hashability</td><td>2 h</td></tr><tr><td>6</td><td><strong>Dictionaries &amp; Hash Tables</strong></td><td>Dict internals, hashing, collision handling, defaultdict, Counter</td><td>4 h</td></tr><tr><td>7</td><td><strong>Stacks</strong></td><td>List‑based stack, push/pop, applications (parentheses matching, DFS)</td><td>2 h</td></tr><tr><td>8</td><td><strong>Queues</strong></td><td>collections.deque, circular buffer, priority queue via heapq, BFS</td><td>3 h</td></tr><tr><td>9</td><td><strong>Linked Lists</strong></td><td>Singly &amp; doubly linked nodes, insertion/deletion, reversing, cycle detection</td><td>4 h</td></tr><tr><td>10</td><td><strong>Recursion</strong></td><td>Base case, tail recursion, recursion vs iteration, memoization intro</td><td>3 h</td></tr><tr><td>11</td><td><strong>Sorting Algorithms</strong></td><td>Bubble, insertion, selection (O(n²)), merge sort, quicksort, heap sort, timsort (Py2 sort)</td><td>6 h</td></tr><tr><td>12</td><td><strong>Searching</strong></td><td>Linear search, binary search (iterative &amp; recursive), interpolation search</td><td>3 h</td></tr><tr><td>13</td><td><strong>Trees</strong></td><td>Binary tree traversals (pre/in/post/level), BST properties, AVL basics, heap property</td><td>5 h</td></tr><tr><td>14</td><td><strong>Graphs</strong></td><td>Representation (adj list/matrix), DFS, BFS, shortest path (Dijkstra), topological sort</td><td>5 h</td></tr><tr><td>15</td><td><strong>Dynamic Programming</strong></td><td>Memoization vs tabulation, classic problems (fib, knapsack, LCS, coin change)</td><td>6 h</td></tr><tr><td>16</td><td><strong>Greedy Algorithms</strong></td><td>Activity selection, Huffman coding, fractional knapsack, interval scheduling</td><td>3 h</td></tr><tr><td>17</td><td><strong>Backtracking</strong></td><td>N‑Queens, Sudoku solver, subset sum, permutation generation</td><td>4 h</td></tr><tr><td>18</td><td><strong>Advanced Topics</strong></td><td>Trie, segment tree, Fenwick tree, disjoint set (union‑find), basic string matching (KMP)</td><td>6 h</td></tr><tr><td>19</td><td><strong>Practice &amp; Review</strong></td><td>Solve 2‑3 problems per topic on platforms (LeetCode Easy/Medium, HackerRank)</td><td>8 h</td></tr><tr><td>20</td><td><strong>Capstone Project</strong></td><td>Implement a small utility (e.g., spell checker, maze solver) using multiple DS/AL</td><td>6 h</td></tr></tbody></table></div>
+<p><strong>Total Estimated Time:</strong> ~80 hours (≈2 hours/day for 6 weeks). Adjust based on your pace; focus on understanding concepts and coding each structure/algorithm at least once.</p>
+<hr/>
+<p>title: DSA Roadmap (Python) - Practical &amp; Hands-on
+tags: [dsa, python, interview-prep, hands-on]
+created: 2026-09-17</p>
+<hr/>
+<h1 id="-dsa-roadmap-python">🚀 DSA Roadmap (Python)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-dsa-roadmap-python" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="-hands-on-execution-strategy-no-video-tutorials">📌 Hands-On Execution Strategy (No Video Tutorials)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-hands-on-execution-strategy-no-video-tutorials" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Total Estimated Time:</strong> ~80 hours (≈2 hours/day for 6 weeks). Adjust based on your pace; focus on understanding concepts and coding each structure/algorithm at least once.</p>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task-char=" ">
+<p><input type="checkbox" class="checkbox-toggle"/> <strong>Read &amp; Implement First:</strong> For every topic, read official docs, Python typing annotations, or text-based articles (like Real Python, GeeksforGeeks, or LeetCode editorial articles) instead of watching video tutorials.</p>
+</li>
+<li class="task-list-item" data-task-char=" ">
+<p><input type="checkbox" class="checkbox-toggle"/> <strong>Manual Implementation:</strong> Write every data structure and algorithm from scratch using pure Python classes before using Python’s built-in modules (<code>collections</code>, <code>heapq</code>, <code>bisect</code>, etc.).</p>
+</li>
+<li class="task-list-item" data-task-char=" ">
+<p><input type="checkbox" class="checkbox-toggle"/> <strong>Interactive Debugging:</strong> Use Python’s built-in <code>pdb</code> module, <code>print()</code> debugging, or Python Tutor (online visualizer) to trace execution flow line-by-line manually.</p>
+</li>
+<li class="task-list-item" data-task-char=" ">
+<p><input type="checkbox" class="checkbox-toggle"/> <strong>Solve 5–10 Problems per Topic:</strong> Move to problem sets only after your custom implementation passes basic test cases.</p>
+</li>
+<li class="task-list-item" data-task-char=" ">
+<p><input type="checkbox" class="checkbox-toggle"/> <strong>Big-O Analysis:</strong> Write down Time &amp; Space Complexity annotations in docstrings for every function you write.</p>
+</li>
+</ul>
+<hr/>
+<h2 id="1️⃣-arrays--lists">1️⃣ Arrays &amp; Lists<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1️⃣-arrays--lists" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="basic-operations-built-in-list">Basic Operations (Built-in <code>list</code>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#basic-operations-built-in-list" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Creation &amp; List Comprehensions (<code>[0] * n</code>, <code>[x for x in range(n)]</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Indexing &amp; Slicing (<code>lst[a:b:step]</code>) — O(k) step slice copy</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Traversal (<code>for item in lst:</code>, <code>enumerate()</code>, <code>zip()</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Insert/Delete at end (<code>append</code>, <code>pop</code>) — O(1) amortized</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Insert/Delete at arbitrary index (<code>insert</code>, <code>pop(i)</code>, <code>del</code>) — O(n)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Linear Search (<code>in</code> keyword, <code>index()</code>) — O(n)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> In-place modification vs returning a copy (<code>sort()</code> vs <code>sorted()</code>)</li>
+</ul>
+<h3 id="intermediate-concepts--python-internals">Intermediate Concepts &amp; Python Internals<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#intermediate-concepts--python-internals" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Python <code>list</code> internal structure (dynamic array allocation, pointer arrays)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Dynamic resizing &amp; over-allocation mechanics</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Multi-dimensional lists / 2D Grids (<code>[[0]*col for _ in range(row)]</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Shallow copy (<code>copy()</code>, <code>[:]</code>) vs Deep copy (<code>copy.deepcopy()</code>)</li>
+</ul>
+<h3 id="core-patterns-implement-from-scratch">Core Patterns (Implement from scratch!)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#core-patterns-implement-from-scratch" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Two Pointers (opposite directions &amp; fast/slow)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Sliding Window (fixed-size &amp; dynamic variable size)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Prefix Sum &amp; Difference Arrays</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Kadane’s Algorithm (maximum subarray sum)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Dutch National Flag Algorithm (3-way partitioning)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Binary Search on Arrays (<code>bisect_left</code>, <code>bisect_right</code> implementation)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Interval Merging &amp; Overlap checks</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Cyclic Sort</li>
+</ul>
+<h3 id="practice-problems">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Two Sum, Best Time to Buy/Sell Stock, Maximum Subarray, Move Zeroes, Product of Array Except Self, Rotate Array, Merge Sorted Array, Container With Most Water, Trapping Rain Water, 3Sum, Subarray Sum Equals K.</p>
+<hr/>
+<h2 id="2️⃣-strings">2️⃣ Strings<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2️⃣-strings" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><em>(Sequences of immutable Unicode characters in Python)</em></p>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> String immutability in Python &amp; string concatenation cost (<code>+</code> vs <code>''.join()</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Traversal, slicing, and ASCII/Unicode operations (<code>ord()</code>, <code>chr()</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Built-in utility methods (<code>split</code>, <code>join</code>, <code>strip</code>, <code>replace</code>, <code>find</code>, <code>startswith</code>, <code>endswith</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> String formatting &amp; f-strings</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> In-place string pattern simulation using <code>list(string)</code></li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Palindrome checks (two-pointer vs slicing)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Anagram checks (Frequency arrays vs <code>collections.Counter</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Pattern Matching basics (Naive, Rabin-Karp, KMP algorithm)</li>
+</ul>
+<h3 id="practice-problems-1">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Valid Anagram, Longest Palindromic Substring, Longest Substring Without Repeating Characters, Group Anagrams, Valid Palindrome, Minimum Window Substring.</p>
+<hr/>
+<h2 id="3️⃣-stack-lifo">3️⃣ Stack (LIFO)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3️⃣-stack-lifo" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="basic-operations">Basic Operations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#basic-operations" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Implement using Python <code>list</code> (<code>append()</code> and <code>pop()</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Implement using <code>collections.deque</code> (thread-safe, efficient double-ended queue)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Build a custom <code>Stack</code> class with methods: <code>push()</code>, <code>pop()</code>, <code>peek()</code>, <code>is_empty()</code>, <code>size()</code></li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Implement using Linked List (pointer-based stack)</li>
+</ul>
+<h3 id="intermediate-concepts">Intermediate Concepts<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#intermediate-concepts" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Min Stack / Max Stack (tracking extremes in O(1) time using auxiliary stack)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Monotonic Stack (Next Greater Element, Next Smaller Element)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Expression Parsing: Infix to Postfix/Prefix conversion &amp; evaluation</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Call Stack simulation &amp; explicit stack recursion unwinding</li>
+</ul>
+<h3 id="practice-problems-2">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Valid Parentheses, Min Stack, Daily Temperatures, Largest Rectangle in Histogram, Evaluate Reverse Polish Notation, Asteroid Collision, Online Stock Span.</p>
+<hr/>
+<h2 id="4️⃣-queue-fifo--deque">4️⃣ Queue (FIFO) &amp; Deque<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4️⃣-queue-fifo--deque" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="basic-operations-1">Basic Operations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#basic-operations-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Explain why Python <code>list.pop(0)</code> is O(n) and inefficient for queues</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Implement Queue using <code>collections.deque</code> (<code>append()</code> and <code>popleft()</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Build a custom <code>Queue</code> class from scratch using Linked List nodes</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Implement <code>CircularQueue</code> with fixed array size and pointers (<code>head</code>, <code>tail</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Implement Double-Ended Queue (<code>Deque</code>) manually</li>
+</ul>
+<h3 id="intermediate-concepts-1">Intermediate Concepts<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#intermediate-concepts-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Monotonic Queue (Sliding Window Maximum)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Queue using two Stacks</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Stack using two Queues</li>
+</ul>
+<h3 id="practice-problems-3">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems-3" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Implement Queue using Stacks, Design Circular Queue, Sliding Window Maximum, Design Hit Counter, Task Scheduler.</p>
+<hr/>
+<h2 id="5️⃣-linked-list">5️⃣ Linked List<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5️⃣-linked-list" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="basic-operations-2">Basic Operations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#basic-operations-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Node class implementation (<code>class Node: def __init__(self, val=0, next=None):</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Singly Linked List: Insertion &amp; Deletion at Head, Tail, and Middle</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Traversal, Search, and Length calculation</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Reverse Linked List (Iterative &amp; Recursive approaches)</li>
+</ul>
+<h3 id="intermediate-concepts-2">Intermediate Concepts<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#intermediate-concepts-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Doubly Linked List node (<code>prev</code>, <code>val</code>, <code>next</code>) implementation</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Circular Linked List</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Fast &amp; Slow Pointers (Floyd’s Cycle Finding Algorithm)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Find Middle Node</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Merge Two Sorted Lists</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Remove N-th node from end (single-pass pointer difference)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Palindrome Linked List</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> LRU Cache (Doubly Linked List + Python <code>dict</code>)</li>
+</ul>
+<h3 id="practice-problems-4">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems-4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Reverse Linked List, Linked List Cycle, Merge Two Sorted Lists, Remove Nth Node From End, Reorder List, Add Two Numbers, Copy List with Random Pointer, LRU Cache.</p>
+<hr/>
+<h2 id="-checkpoint-linear-data-structures">🔀 Checkpoint: Linear Data Structures<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-checkpoint-linear-data-structures" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Before advancing to non-linear structures, solve 3 random problems combining Lists, Stacks, Queues, and Linked Lists without checking solutions.</p>
+<hr/>
+<h2 id="6️⃣-hash-map--hash-set">6️⃣ Hash Map &amp; Hash Set<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6️⃣-hash-map--hash-set" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="basic-operations-3">Basic Operations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#basic-operations-3" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Python built-in <code>dict</code> and <code>set</code> mechanics (hash tables under the hood)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Special Python dictionaries: <code>collections.defaultdict</code>, <code>collections.Counter</code>, <code>collections.OrderedDict</code></li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Hash functions &amp; key immutability requirements (tuples/strings vs lists/dicts)</li>
+</ul>
+<h3 id="intermediate-concepts-build-from-scratch">Intermediate Concepts (Build from scratch)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#intermediate-concepts-build-from-scratch" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Build a custom <code>HashTable</code> class using fixed-size list of buckets</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Collision resolution techniques: Separate Chaining (Linked Lists) vs Open Addressing (Linear Probing)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Load Factor calculation &amp; Dynamic Rehashing (doubling capacity)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Frequency counting &amp; grouping patterns</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Subarray sum problems using Prefix Sum + Hash Map</li>
+</ul>
+<h3 id="practice-problems-5">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems-5" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Two Sum, Group Anagrams, Subarray Sum Equals K, Longest Consecutive Sequence, Top K Frequent Elements, Contains Duplicate, Design HashMap, 4Sum II.</p>
+<hr/>
+<h2 id="7️⃣-trees--binary-search-trees-bst">7️⃣ Trees &amp; Binary Search Trees (BST)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7️⃣-trees--binary-search-trees-bst" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="basic-operations-binary-tree">Basic Operations (Binary Tree)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#basic-operations-binary-tree" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Node class (<code>class TreeNode: def __init__(self, val=0, left=None, right=None):</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Recursive Traversals: Preorder, Inorder, Postorder</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Iterative Traversals (using explicit stack)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Level Order Traversal / BFS (using <code>collections.deque</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Calculate Depth, Height, Node Count, Leaf Count</li>
+</ul>
+<h3 id="binary-search-tree-bst">Binary Search Tree (BST)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#binary-search-tree-bst" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> BST Property: <code>left &lt; root &lt; right</code></li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Search, Insert, and Delete (handling 0, 1, and 2 children cases)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Lowest Common Ancestor (LCA) in BST</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Convert Sorted Array to Balanced BST</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Validate BST (min/max range tracking)</li>
+</ul>
+<h3 id="intermediate--advanced-trees">Intermediate &amp; Advanced Trees<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#intermediate--advanced-trees" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Trie (Prefix Tree): Build <code>TrieNode</code> with dict of children &amp; <code>is_end_of_word</code> flag</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Balanced BST concepts (AVL Tree rotation rules, Red-Black Tree theory)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Segment Tree (Range sum/min queries)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Binary Indexed Tree (Fenwick Tree)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Lowest Common Ancestor (General Binary Tree)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Tree Serialization &amp; Deserialization</li>
+</ul>
+<h3 id="practice-problems-6">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems-6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Maximum Depth of Binary Tree, Validate BST, Binary Tree Level Order Traversal, Lowest Common Ancestor of BST, Diameter of Binary Tree, Implement Trie, Kth Smallest Element in a BST, Serialize and Deserialize Binary Tree.</p>
+<hr/>
+<h2 id="8️⃣-heap--priority-queue">8️⃣ Heap &amp; Priority Queue<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8️⃣-heap--priority-queue" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="basic-operations-4">Basic Operations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#basic-operations-4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Array-based binary heap indexing: Parent <code>(i-1)//2</code>, Left Child <code>2i+1</code>, Right Child <code>2i+2</code></li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Build a <code>MinHeap</code> and <code>MaxHeap</code> class from scratch:
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> <code>sift_up()</code> / <code>heapify_up()</code> — O(log n)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> <code>sift_down()</code> / <code>heapify_down()</code> — O(log n)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> <code>insert()</code> and <code>extract_min()</code> — O(log n)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> <code>heapify()</code> (build heap from unsorted array in O(n) time)</li>
+</ul>
+</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Python’s built-in <code>heapq</code> module (<code>heappush</code>, <code>heappop</code>, <code>heapify</code>, <code>heappushpop</code>, <code>nlargest</code>, <code>nsmallest</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Handling Max-Heaps in Python (negating numbers technique)</li>
+</ul>
+<h3 id="intermediate-concepts-3">Intermediate Concepts<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#intermediate-concepts-3" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Heap Sort implementation</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Top K Elements pattern</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Two-Heap pattern (Find Median from Data Stream)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Custom objects/tuples in <code>heapq</code> with custom comparator wrappers</li>
+</ul>
+<h3 id="practice-problems-7">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems-7" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Kth Largest Element in an Array, Merge k Sorted Lists, Top K Frequent Elements, Find Median from Data Stream, Task Scheduler, Meeting Rooms II.</p>
+<hr/>
+<h2 id="9️⃣-graphs">9️⃣ Graphs<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#9️⃣-graphs" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="representation-techniques">Representation Techniques<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#representation-techniques" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Adjacency List (using <code>dict</code> or <code>defaultdict(list)</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Adjacency Matrix (2D list)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Edge List</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Grid as an implicit graph</li>
+</ul>
+<h3 id="fundamental-traversals--algorithms">Fundamental Traversals &amp; Algorithms<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fundamental-traversals--algorithms" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Breadth-First Search (BFS) using Queue</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Depth-First Search (DFS) using Recursion and Iterative Stack</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Connected Components counting</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Cycle Detection (Undirected graph using BFS/DFS; Directed graph using 3-color marking)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Topological Sorting (Kahn’s Algorithm / Indegree BFS &amp; DFS post-order)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Union-Find / Disjoint Set Union (DSU) with Path Compression and Union by Rank</li>
+</ul>
+<h3 id="advanced-graph-algorithms">Advanced Graph Algorithms<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#advanced-graph-algorithms" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Dijkstra’s Algorithm (Shortest path in weighted graph using <code>heapq</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Bellman-Ford Algorithm (Handles negative edge weights &amp; detects negative cycles)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Floyd-Warshall Algorithm (All-pairs shortest path)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Prim’s &amp; Kruskal’s Algorithms (Minimum Spanning Tree - MST)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Bipartite Graph Verification</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Strongly Connected Components (Tarjan’s / Kosaraju’s Algorithm)</li>
+</ul>
+<h3 id="practice-problems-8">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems-8" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Number of Islands, Clone Graph, Course Schedule (I &amp; II), Rotting Oranges, Word Ladder, Network Delay Time, Redundant Connection, Graph Valid Tree, Pacific Atlantic Water Flow.</p>
+<hr/>
+<h2 id="-recursion--backtracking">🔟 Recursion &amp; Backtracking<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-recursion--backtracking" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="fundamentals">Fundamentals<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fundamentals" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Base case, Recursive relation, and Recursion Tree sketching</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Python call stack depth limit (<code>sys.getrecursionlimit()</code>, <code>sys.setrecursionlimit()</code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> State space tree visualization</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Standard Backtracking Template: <code>Choose -> Explore -> Unchoose</code></li>
+</ul>
+<h3 id="key-patterns">Key Patterns<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#key-patterns" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Generating Subsets (Power Set)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Generating Permutations &amp; Combinations</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Grid Backtracking (Matrix traversal)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Constraint Satisfaction Problems (N-Queens, Sudoku Solver)</li>
+</ul>
+<h3 id="practice-problems-9">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems-9" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Subsets, Permutations, Combination Sum, N-Queens, Letter Combinations of a Phone Number, Word Search, Palindrome Partitioning.</p>
+<hr/>
+<h2 id="1️⃣1️⃣-sorting--searching">1️⃣1️⃣ Sorting &amp; Searching<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1️⃣1️⃣-sorting--searching" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="sorting-algorithms-implement-manually-analyze-stability--complexity">Sorting Algorithms (Implement manually, analyze stability &amp; complexity)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#sorting-algorithms-implement-manually-analyze-stability--complexity" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Bubble Sort — O(n²)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Selection Sort — O(n²)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Insertion Sort — O(n²), efficient for small/nearly-sorted inputs</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Merge Sort — O(n log n), Divide &amp; Conquer, Stable</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Quick Sort — O(n log n) average, partition schemes (Lomuto vs Hoare)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Heap Sort — O(n log n)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Counting Sort / Radix Sort (Non-comparison based) — O(n + k)</li>
+</ul>
+<h3 id="searching-algorithms--binary-search-patterns">Searching Algorithms &amp; Binary Search Patterns<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#searching-algorithms--binary-search-patterns" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Linear Search — O(n)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Standard Binary Search (Iterative &amp; Recursive) — O(log n)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Binary Search on Answer Space (Minimizing/Maximizing feasible constraints)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Python’s built-in <code>bisect</code> module (<code>bisect_left</code>, <code>bisect_right</code>)</li>
+</ul>
+<h3 id="practice-problems-10">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems-10" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Binary Search, Search in Rotated Sorted Array, Find First and Last Position of Element in Sorted Array, Kth Largest Element, Sort Colors, Capacity To Ship Packages Within D Days.</p>
+<hr/>
+<h2 id="1️⃣2️⃣-dynamic-programming-dp">1️⃣2️⃣ Dynamic Programming (DP)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1️⃣2️⃣-dynamic-programming-dp" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="foundations">Foundations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#foundations" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Overlapping Subproblems &amp; Optimal Substructure</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Top-Down Approach (Recursion + Memoization) using Python’s <code>@functools.lru_cache</code> or manual <code>memo</code> dictionary</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Bottom-Up Approach (Iterative Tabulation)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Space Optimization techniques (reducing 2D DP array to 1D array)</li>
+</ul>
+<h3 id="essential-dp-patterns">Essential DP Patterns<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#essential-dp-patterns" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> 1D DP: Climbing Stairs, House Robber, Coin Change</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Unbounded &amp; 0/1 Knapsack Patterns</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Longest Common Subsequence (LCS) &amp; String Alignment</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Longest Increasing Subsequence (LIS) — O(n²) and O(n log n) with binary search</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Matrix / Grid DP (Unique Paths, Minimum Path Sum)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Interval DP &amp; DP on Palindromes</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Bitmask DP (Advanced)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Tree DP (Advanced)</li>
+</ul>
+<h3 id="practice-problems-11">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems-11" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Climbing Stairs, House Robber, Coin Change, Longest Common Subsequence, Longest Increasing Subsequence, Edit Distance, 0/1 Knapsack, Partition Equal Subset Sum, Word Break, Unique Paths, Target Sum.</p>
+<hr/>
+<h2 id="1️⃣3️⃣-greedy-algorithms">1️⃣3️⃣ Greedy Algorithms<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1️⃣3️⃣-greedy-algorithms" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Understanding Greedy Choice Property vs Dynamic Programming</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Interval Scheduling / Activity Selection</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Fractional Knapsack</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Greedy Choice Verification &amp; Proof of Correctness</li>
+</ul>
+<h3 id="practice-problems-12">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems-12" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Jump Game (I &amp; II), Gas Station, Meeting Rooms, Task Scheduler, Minimum Number of Arrows to Burst Balloons, Partition Labels.</p>
+<hr/>
+<h2 id="1️⃣4️⃣-bit-manipulation">1️⃣4️⃣ Bit Manipulation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1️⃣4️⃣-bit-manipulation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Python Integer Representation (arbitrary precision integers)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Bitwise Operators: AND (<code>&amp;</code>), OR (<code>|</code>), XOR (<code>^</code>), NOT (<code>~</code>), Left Shift (<code>&lt;&lt;</code>), Right Shift (<code>>></code>)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Common Operations:
+<ul>
+<li>Check if <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span>-th bit is set: <code>(num &amp; (1 &lt;&lt; i)) != 0</code></li>
+<li>Set <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span>-th bit: <code>num | (1 &lt;&lt; i)</code></li>
+<li>Clear <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span>-th bit: <code>num &amp; ~(1 &lt;&lt; i)</code></li>
+<li>Toggle <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6595em;"></span><span class="mord mathnormal">i</span></span></span></span>-th bit: <code>num ^ (1 &lt;&lt; i)</code></li>
+<li>Clear lowest set bit: <code>num &amp; (num - 1)</code></li>
+<li>Is power of two check: <code>num > 0 and (num &amp; (num - 1)) == 0</code></li>
+</ul>
+</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Bitmasking subsets generator</li>
+</ul>
+<h3 id="practice-problems-13">Practice Problems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#practice-problems-13" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Single Number, Number of 1 Bits, Counting Bits, Reverse Bits, Power of Two, Missing Number, Subsets (using Bitmask).</p>
+<hr/>
+<h2 id="-python-dsa-complexity--method-reference">🧩 Python DSA Complexity &amp; Method Reference<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-python-dsa-complexity--method-reference" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Data Structure / Operation</th><th style="text-align:left;">Access</th><th style="text-align:left;">Search</th><th style="text-align:left;">Insert</th><th style="text-align:left;">Delete</th><th style="text-align:left;">Python Built-In Equivalents</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>Array / List</strong></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> end: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> end: <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><code>list</code></td></tr><tr><td style="text-align:left;"><strong>Stack</strong></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><code>collections.deque</code> / <code>list</code></td></tr><tr><td style="text-align:left;"><strong>Queue</strong></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><code>collections.deque</code></td></tr><tr><td style="text-align:left;"><strong>Singly Linked List</strong></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span></td><td style="text-align:left;">Custom Class</td></tr><tr><td style="text-align:left;"><strong>Hash Map / Set</strong></td><td style="text-align:left;">—</td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> avg</td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> avg</td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> avg</td><td style="text-align:left;"><code>dict</code>, <code>set</code>, <code>defaultdict</code></td></tr><tr><td style="text-align:left;"><strong>BST (Balanced)</strong></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;">Custom Class</td></tr><tr><td style="text-align:left;"><strong>Heap / Priority Queue</strong></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> top</td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><code>heapq</code> module</td></tr><tr><td style="text-align:left;"><strong>Graph (Adjacency List)</strong></td><td style="text-align:left;">—</td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.2222em;">V</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0576em;">E</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.2222em;">V</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0576em;">E</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left;"><code>dict</code> of <code>lists</code> / <code>sets</code></td></tr></tbody></table></div>
+<p><em>*Requires existing direct reference to target node position.</em></p>
+<hr/>
+<h2 id="-progress-tracker">✅ Progress Tracker<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-progress-tracker" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Arrays &amp; Lists</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Strings</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Stack</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Queue &amp; Deque</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Linked List</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Hash Map &amp; Set</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Trees &amp; BST</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Trie</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Heap &amp; Priority Queue</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Graphs &amp; DSU</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Recursion &amp; Backtracking</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Sorting &amp; Searching</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Dynamic Programming</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Greedy Algorithms</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> Bit Manipulation</li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-5" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#-dsa-roadmap-python" data-for="-dsa-roadmap-python">🚀 DSA Roadmap (Python)</a></li><li class="depth-1"><a href="#-hands-on-execution-strategy-no-video-tutorials" data-for="-hands-on-execution-strategy-no-video-tutorials">📌 Hands-On Execution Strategy (No Video Tutorials)</a></li><li class="depth-1"><a href="#1️⃣-arrays--lists" data-for="1️⃣-arrays--lists">1️⃣ Arrays &amp; Lists</a></li><li class="depth-2"><a href="#basic-operations-built-in-list" data-for="basic-operations-built-in-list">Basic Operations (Built-in list)</a></li><li class="depth-2"><a href="#intermediate-concepts--python-internals" data-for="intermediate-concepts--python-internals">Intermediate Concepts &amp; Python Internals</a></li><li class="depth-2"><a href="#core-patterns-implement-from-scratch" data-for="core-patterns-implement-from-scratch">Core Patterns (Implement from scratch!)</a></li><li class="depth-2"><a href="#practice-problems" data-for="practice-problems">Practice Problems</a></li><li class="depth-1"><a href="#2️⃣-strings" data-for="2️⃣-strings">2️⃣ Strings</a></li><li class="depth-2"><a href="#practice-problems-1" data-for="practice-problems-1">Practice Problems</a></li><li class="depth-1"><a href="#3️⃣-stack-lifo" data-for="3️⃣-stack-lifo">3️⃣ Stack (LIFO)</a></li><li class="depth-2"><a href="#basic-operations" data-for="basic-operations">Basic Operations</a></li><li class="depth-2"><a href="#intermediate-concepts" data-for="intermediate-concepts">Intermediate Concepts</a></li><li class="depth-2"><a href="#practice-problems-2" data-for="practice-problems-2">Practice Problems</a></li><li class="depth-1"><a href="#4️⃣-queue-fifo--deque" data-for="4️⃣-queue-fifo--deque">4️⃣ Queue (FIFO) &amp; Deque</a></li><li class="depth-2"><a href="#basic-operations-1" data-for="basic-operations-1">Basic Operations</a></li><li class="depth-2"><a href="#intermediate-concepts-1" data-for="intermediate-concepts-1">Intermediate Concepts</a></li><li class="depth-2"><a href="#practice-problems-3" data-for="practice-problems-3">Practice Problems</a></li><li class="depth-1"><a href="#5️⃣-linked-list" data-for="5️⃣-linked-list">5️⃣ Linked List</a></li><li class="depth-2"><a href="#basic-operations-2" data-for="basic-operations-2">Basic Operations</a></li><li class="depth-2"><a href="#intermediate-concepts-2" data-for="intermediate-concepts-2">Intermediate Concepts</a></li><li class="depth-2"><a href="#practice-problems-4" data-for="practice-problems-4">Practice Problems</a></li><li class="depth-1"><a href="#-checkpoint-linear-data-structures" data-for="-checkpoint-linear-data-structures">🔀 Checkpoint: Linear Data Structures</a></li><li class="depth-1"><a href="#6️⃣-hash-map--hash-set" data-for="6️⃣-hash-map--hash-set">6️⃣ Hash Map &amp; Hash Set</a></li><li class="depth-2"><a href="#basic-operations-3" data-for="basic-operations-3">Basic Operations</a></li><li class="depth-2"><a href="#intermediate-concepts-build-from-scratch" data-for="intermediate-concepts-build-from-scratch">Intermediate Concepts (Build from scratch)</a></li><li class="depth-2"><a href="#practice-problems-5" data-for="practice-problems-5">Practice Problems</a></li><li class="depth-1"><a href="#7️⃣-trees--binary-search-trees-bst" data-for="7️⃣-trees--binary-search-trees-bst">7️⃣ Trees &amp; Binary Search Trees (BST)</a></li><li class="depth-2"><a href="#basic-operations-binary-tree" data-for="basic-operations-binary-tree">Basic Operations (Binary Tree)</a></li><li class="depth-2"><a href="#binary-search-tree-bst" data-for="binary-search-tree-bst">Binary Search Tree (BST)</a></li><li class="depth-2"><a href="#intermediate--advanced-trees" data-for="intermediate--advanced-trees">Intermediate &amp; Advanced Trees</a></li><li class="depth-2"><a href="#practice-problems-6" data-for="practice-problems-6">Practice Problems</a></li><li class="depth-1"><a href="#8️⃣-heap--priority-queue" data-for="8️⃣-heap--priority-queue">8️⃣ Heap &amp; Priority Queue</a></li><li class="depth-2"><a href="#basic-operations-4" data-for="basic-operations-4">Basic Operations</a></li><li class="depth-2"><a href="#intermediate-concepts-3" data-for="intermediate-concepts-3">Intermediate Concepts</a></li><li class="depth-2"><a href="#practice-problems-7" data-for="practice-problems-7">Practice Problems</a></li><li class="depth-1"><a href="#9️⃣-graphs" data-for="9️⃣-graphs">9️⃣ Graphs</a></li><li class="depth-2"><a href="#representation-techniques" data-for="representation-techniques">Representation Techniques</a></li><li class="depth-2"><a href="#fundamental-traversals--algorithms" data-for="fundamental-traversals--algorithms">Fundamental Traversals &amp; Algorithms</a></li><li class="depth-2"><a href="#advanced-graph-algorithms" data-for="advanced-graph-algorithms">Advanced Graph Algorithms</a></li><li class="depth-2"><a href="#practice-problems-8" data-for="practice-problems-8">Practice Problems</a></li><li class="depth-1"><a href="#-recursion--backtracking" data-for="-recursion--backtracking">🔟 Recursion &amp; Backtracking</a></li><li class="depth-2"><a href="#fundamentals" data-for="fundamentals">Fundamentals</a></li><li class="depth-2"><a href="#key-patterns" data-for="key-patterns">Key Patterns</a></li><li class="depth-2"><a href="#practice-problems-9" data-for="practice-problems-9">Practice Problems</a></li><li class="depth-1"><a href="#1️⃣1️⃣-sorting--searching" data-for="1️⃣1️⃣-sorting--searching">1️⃣1️⃣ Sorting &amp; Searching</a></li><li class="depth-2"><a href="#sorting-algorithms-implement-manually-analyze-stability--complexity" data-for="sorting-algorithms-implement-manually-analyze-stability--complexity">Sorting Algorithms (Implement manually, analyze stability &amp; complexity)</a></li><li class="depth-2"><a href="#searching-algorithms--binary-search-patterns" data-for="searching-algorithms--binary-search-patterns">Searching Algorithms &amp; Binary Search Patterns</a></li><li class="depth-2"><a href="#practice-problems-10" data-for="practice-problems-10">Practice Problems</a></li><li class="depth-1"><a href="#1️⃣2️⃣-dynamic-programming-dp" data-for="1️⃣2️⃣-dynamic-programming-dp">1️⃣2️⃣ Dynamic Programming (DP)</a></li><li class="depth-2"><a href="#foundations" data-for="foundations">Foundations</a></li><li class="depth-2"><a href="#essential-dp-patterns" data-for="essential-dp-patterns">Essential DP Patterns</a></li><li class="depth-2"><a href="#practice-problems-11" data-for="practice-problems-11">Practice Problems</a></li><li class="depth-1"><a href="#1️⃣3️⃣-greedy-algorithms" data-for="1️⃣3️⃣-greedy-algorithms">1️⃣3️⃣ Greedy Algorithms</a></li><li class="depth-2"><a href="#practice-problems-12" data-for="practice-problems-12">Practice Problems</a></li><li class="depth-1"><a href="#1️⃣4️⃣-bit-manipulation" data-for="1️⃣4️⃣-bit-manipulation">1️⃣4️⃣ Bit Manipulation</a></li><li class="depth-2"><a href="#practice-problems-13" data-for="practice-problems-13">Practice Problems</a></li><li class="depth-1"><a href="#-python-dsa-complexity--method-reference" data-for="-python-dsa-complexity--method-reference">🧩 Python DSA Complexity &amp; Method Reference</a></li><li class="depth-1"><a href="#-progress-tracker" data-for="-progress-tracker">✅ Progress Tracker</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-3426b91c.js" type="module" data-persist="true"></script></html>

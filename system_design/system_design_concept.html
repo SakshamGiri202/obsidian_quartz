@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>System_Design_Concept</title><meta charset="utf-8"/><link rel="preload" href="../index-bb6c1746.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 5"/><meta property="og:title" content="System_Design_Concept"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="System_Design_Concept"/><meta name="twitter:description" content="System Design Concepts TL;DR Full course notes for freeCodeCamp’s System Design Concepts Course and Interview Prep by Hayk Simonyan."/><meta property="og:description" content="System Design Concepts TL;DR Full course notes for freeCodeCamp’s System Design Concepts Course and Interview Prep by Hayk Simonyan."/><meta property="og:image:alt" content="System Design Concepts TL;DR Full course notes for freeCodeCamp’s System Design Concepts Course and Interview Prep by Hayk Simonyan."/><meta property="og:image" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/system_design/system_design_concept"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/system_design/system_design_concept"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="System Design Concepts TL;DR Full course notes for freeCodeCamp’s System Design Concepts Course and Interview Prep by Hayk Simonyan."/><meta name="generator" content="Quartz"/><link href="../index-bb6c1746.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-7262b5a7.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/></head><body data-slug="system_design/system_design_concept" data-basepath><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Quartz 5</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="Search" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something..." placeholder="Search for something..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="Dark mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="Reader mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-49" aria-label="Explorer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-49" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../system_design/">System_Design</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>System_Design_Concept</a></div></nav><h1 class="article-title">System_Design_Concept</h1><details class="note-properties metadata-container" open data-collapsed="false"><summary class="note-properties-header"><span class="note-properties-title">Properties</span><span class="note-properties-count">1</span></summary><table class="note-properties-table"><tbody><tr class="note-properties-row metadata-property"><td class="note-properties-key metadata-property-key">tags</td><td class="note-properties-value metadata-property-value"><span class="note-properties-tags"><a href="../tags/system-design" class="internal internal-link tag-link">system-design</a><span class="note-properties-separator">, </span><a href="../tags/architecture" class="internal internal-link tag-link">architecture</a><span class="note-properties-separator">, </span><a href="../tags/interview-prep" class="internal internal-link tag-link">interview-prep</a></span></td></tr></tbody></table></details><p show-comma="true" class="content-meta"><time datetime="2026-06-29T06:35:00.000Z">Jun 29, 2026</time><span>19 min read</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="system-design-concepts">System Design Concepts<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#system-design-concepts" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<blockquote class="callout abstract" data-callout="abstract">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>TL;DR </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Full course notes for freeCodeCamp’s System Design Concepts Course and Interview Prep by Hayk Simonyan. Covers 11 sections: Computer Architecture, Production App Architecture, Design Requirements (CAP Theorem, Throughput, Latency, SLOs/SLAs), Networking, Application Layer Protocols, API Design, Caching &amp; CDNs, Proxy Servers, Load Balancers, and Databases. Core lesson: system design is about trade-offs, not perfect solutions.</p>
+</div>
+</blockquote>
+<h2 id="-content">📝 Content<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-content" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="section-1--introduction-0000">Section 1 — Introduction (00:00)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#section-1--introduction-0000" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Companies don’t pay six figures for people who just code. They pay for <strong>architectural decisions</strong> — making systems performant, optimizing data storage, and making decisions that affect real customers and real software at scale.</p>
+<p>System design is about <strong>trade-offs</strong>. There is no perfect solution — every decision comes with trade-offs:</p>
+<ul>
+<li>Read-optimized systems may perform poorly on writes</li>
+<li>Gaining performance may mean sacrificing simplicity</li>
+<li>Increasing throughput can increase latency</li>
+<li>Strengthening consistency reduces availability</li>
+</ul>
+<p>The goal is finding the <strong>best solution for your specific use case</strong>.</p>
+<hr/>
+<h3 id="section-2--computer-architecture-0039">Section 2 — Computer Architecture (00:39)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#section-2--computer-architecture-0039" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Computers only understand <strong>binary data</strong> (0s and 1s). Understanding the hardware hierarchy is critical for predicting bottlenecks in distributed systems.</p>
+<h4 id="memory-units">Memory Units<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#memory-units" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Unit</th><th>Size</th></tr></thead><tbody><tr><td>Bit</td><td>0 or 1</td></tr><tr><td>Byte</td><td>8 bits (one character: ‘A’, ‘1’)</td></tr><tr><td>Kilobyte (KB)</td><td>~1,024 Bytes</td></tr><tr><td>Megabyte (MB)</td><td>~1,024 KB</td></tr><tr><td>Gigabyte (GB)</td><td>~1,024 MB</td></tr><tr><td>Terabyte (TB)</td><td>~1,024 GB</td></tr></tbody></table></div>
+<h4 id="the-hardware-hierarchy">The Hardware Hierarchy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-hardware-hierarchy" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;graph TD\n    CPU[\&quot;CPU (Brain)\&quot;]\n    L1[\&quot;L1 Cache (ns)\&quot;]\n    L2[\&quot;L2 Cache (~ns)\&quot;]\n    L3[\&quot;L3 Cache (a few ns)\&quot;]\n    RAM[\&quot;RAM (5,000+ MB/s)\&quot;]\n    SSD[\&quot;SSD (500-3,500 MB/s)\&quot;]\n    HDD[\&quot;HDD (80-160 MB/s)\&quot;]\n    CPU --> L1 --> L2 --> L3 --> RAM --> SSD\n    RAM --> HDD&quot;">graph TD
+    CPU[&quot;CPU (Brain)&quot;]
+    L1[&quot;L1 Cache (ns)&quot;]
+    L2[&quot;L2 Cache (~ns)&quot;]
+    L3[&quot;L3 Cache (a few ns)&quot;]
+    RAM[&quot;RAM (5,000+ MB/s)&quot;]
+    SSD[&quot;SSD (500-3,500 MB/s)&quot;]
+    HDD[&quot;HDD (80-160 MB/s)&quot;]
+    CPU --> L1 --> L2 --> L3 --> RAM --> SSD
+    RAM --> HDD
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<p><strong>Disk Storage</strong> — Non-volatile. OS, apps, and user files are stored here. HDDs are cheaper but slower (80-160 MB/s). SSDs are faster (500-3,500 MB/s) but more expensive.</p>
+<p><strong>RAM (Random Access Memory)</strong> — Volatile memory. Holds variables, runtime stacks, and active program data. Much faster than disk (5,000+ MB/s). Contents lost on power-off. Consumer devices: 8-32 GB; servers: 128 GB+.</p>
+<p><strong>Cache (L1/L2/L3)</strong> — Ultra-fast, megabyte-scale memory built into the CPU. L1 is the fastest (nanoseconds). CPU searches data in order: L1 → L2 → L3 → RAM.</p>
+<p><strong>CPU (Central Processing Unit)</strong> — The “brain” of the computer. Fetches, decodes, and executes machine code. High-level languages must be compiled into machine code (0s and 1s) for the CPU to understand.</p>
+<p><strong>Motherboard</strong> — The central hub connecting all components (CPU, RAM, storage) and providing data pathways.</p>
+<blockquote>
+<p><strong>Key insight for system design:</strong> This hierarchy is the rationale behind caching. Placing frequently accessed data in faster layers (RAM, cache) dramatically reduces average access time.</p>
+</blockquote>
+<hr/>
+<h3 id="section-3--production-app-architecture-0422">Section 3 — Production App Architecture (04:22)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#section-3--production-app-architecture-0422" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Behind every production app is a world of architecture, testing, monitoring, and security measures.</p>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;sequenceDiagram\n    autonumber\n    actor User as 👤 Client (Browser/App)\n    participant API as 🖥️ Router Entry Point\n    participant Sec as 🛡️ Security Middleware\n    participant Engine as 🔒 Core Auth Engine\n    participant DB as 🐘 PostgreSQL DB\n    participant Cache as ⚡ Redis Cache\n\n    %% STEP 1: LOGIN REQUEST\n    User->>API: 1. POST /api/auth/login (email, password)\n    API->>Sec: 2. Pass request to middleware\n    \n    %% SECURITY CHECK\n    Sec->>Cache: 3. Check IP Rate Limit\n    alt Rate Limit Exceeded\n        Cache-->>Sec: Limit Exceeded\n        Sec-->>User: ❌ 429 Too Many Requests\n    else Rate Limit OK\n        Cache-->>Sec: Request Allowed\n        Sec->>Engine: 4. Forward sanitized request\n        \n        %% AUTHENTICATION &amp; DB\n        Engine->>DB: 5. Query user by email\n        DB-->>Engine: 6. Return user record &amp; password hash\n        Engine->>Engine: 7. Verify password (Argon2)\n        \n        %% SESSION CREATION\n        Engine->>DB: 8. Insert new Session (Session ID, User ID, Expiry)\n        DB-->>Engine: 9. Confirm session stored\n        \n        %% RESPONSE TO CLIENT\n        Engine-->>API: 10. Generate Session Cookie\n        API-->>User: 11. 200 OK + Set-Cookie (HttpOnly, Secure)\n    end&quot;">sequenceDiagram
+    autonumber
+    actor User as 👤 Client (Browser/App)
+    participant API as 🖥️ Router Entry Point
+    participant Sec as 🛡️ Security Middleware
+    participant Engine as 🔒 Core Auth Engine
+    participant DB as 🐘 PostgreSQL DB
+    participant Cache as ⚡ Redis Cache
+
+    %% STEP 1: LOGIN REQUEST
+    User->>API: 1. POST /api/auth/login (email, password)
+    API->>Sec: 2. Pass request to middleware
+    
+    %% SECURITY CHECK
+    Sec->>Cache: 3. Check IP Rate Limit
+    alt Rate Limit Exceeded
+        Cache-->>Sec: Limit Exceeded
+        Sec-->>User: ❌ 429 Too Many Requests
+    else Rate Limit OK
+        Cache-->>Sec: Request Allowed
+        Sec->>Engine: 4. Forward sanitized request
+        
+        %% AUTHENTICATION &amp; DB
+        Engine->>DB: 5. Query user by email
+        DB-->>Engine: 6. Return user record &amp; password hash
+        Engine->>Engine: 7. Verify password (Argon2)
+        
+        %% SESSION CREATION
+        Engine->>DB: 8. Insert new Session (Session ID, User ID, Expiry)
+        DB-->>Engine: 9. Confirm session stored
+        
+        %% RESPONSE TO CLIENT
+        Engine-->>API: 10. Generate Session Cookie
+        API-->>User: 11. 200 OK + Set-Cookie (HttpOnly, Secure)
+    end
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<h4 id="cicd-pipeline">CI/CD Pipeline<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cicd-pipeline" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Continuous Integration and Continuous Deployment automates code going from repository → tests → production without manual intervention. Configured with platforms like <strong>Jenkins</strong> or <strong>GitHub Actions</strong>.</p>
+<h4 id="load-balancer--reverse-proxy">Load Balancer / Reverse Proxy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#load-balancer--reverse-proxy" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Tools like <strong>nginx</strong> distribute user requests evenly across multiple servers, preventing any single server from becoming a bottleneck.</p>
+<h4 id="external-storage">External Storage<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#external-storage" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Databases run on <strong>separate servers</strong> connected via network — isolated from production servers. The web tier and data tier can scale independently.</p>
+<h4 id="logging-monitoring--alerting">Logging, Monitoring &amp; Alerting<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#logging-monitoring--alerting" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Backend logging/monitoring:</strong> PM2</li>
+<li><strong>Frontend error capture:</strong> Sentry (real-time error reporting)</li>
+<li>Logs are stored on external services, not the production server</li>
+<li><strong>Alerting service</strong> detects failing requests/anomalies → sends push notifications to users</li>
+<li>Modern practice: integrate alerts directly into <strong>Slack</strong> channels for immediate response</li>
+</ul>
+<h4 id="debugging-in-production--the-golden-rule">Debugging in Production — The Golden Rule<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#debugging-in-production--the-golden-rule" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li><strong>Log Diving</strong> — Identify the issue through logs</li>
+<li><strong>Replicate in Staging</strong> — Never debug directly in production</li>
+<li><strong>Hotfix</strong> — Quick temporary fix, then permanent solution later</li>
+</ol>
+<hr/>
+<h3 id="section-4--design-requirements-cap-theorem-throughput-latency-slosslas-0712">Section 4 — Design Requirements: CAP Theorem, Throughput, Latency, SLOs/SLAs (07:12)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#section-4--design-requirements-cap-theorem-throughput-latency-slosslas-0712" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="cap-theorem-brewers-theorem">CAP Theorem (Brewer’s Theorem)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cap-theorem-brewers-theorem" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>In a distributed system, you can achieve only <strong>two of three</strong> guarantees simultaneously:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Property</th><th>Meaning</th><th>Analogy</th></tr></thead><tbody><tr><td><strong>C</strong>onsistency</td><td>All nodes see the same data at the same time</td><td>Google Docs — one person edits, everyone sees it instantly</td></tr><tr><td><strong>A</strong>vailability</td><td>Every request gets a response (success or failure)</td><td>A 24/7 online shopping mall — always accessible</td></tr><tr><td><strong>P</strong>artition Tolerance</td><td>System continues operating despite network failures</td><td>Group chat — one person disconnects, others keep chatting</td></tr></tbody></table></div>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;graph TD\n    subgraph \&quot;CAP Theorem — Choose 2 of 3\&quot;\n        C[\&quot;Consistency&lt;br/>Same data everywhere\&quot;]\n        A[\&quot;Availability&lt;br/>Always responsive\&quot;]\n        P[\&quot;Partition Tolerance&lt;br/>Works despite network splits\&quot;]\n    end\n    C --- A\n    A --- P\n    P --- C&quot;">graph TD
+    subgraph &quot;CAP Theorem — Choose 2 of 3&quot;
+        C[&quot;Consistency&lt;br/>Same data everywhere&quot;]
+        A[&quot;Availability&lt;br/>Always responsive&quot;]
+        P[&quot;Partition Tolerance&lt;br/>Works despite network splits&quot;]
+    end
+    C --- A
+    A --- P
+    P --- C
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<p><strong>Real-world choices:</strong></p>
+<ul>
+<li><strong>Banking systems → CP</strong> (sacrifice availability for financial accuracy; transactions may take longer but must be correct)</li>
+<li><strong>Social media feeds → AP</strong> (allow slight inconsistency for always-on responses; you might see a stale like count)</li>
+</ul>
+<h4 id="availability">Availability<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#availability" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Measured as uptime percentage. The golden target is <strong>“Five 9’s” (99.999%)</strong>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:center;">Availability Level</th><th style="text-align:center;">Annual Allowed Downtime</th></tr></thead><tbody><tr><td style="text-align:center;">99% (Two 9’s)</td><td style="text-align:center;">~3.65 days</td></tr><tr><td style="text-align:center;">99.9% (Three 9’s)</td><td style="text-align:center;">~8.76 hours</td></tr><tr><td style="text-align:center;">99.99% (Four 9’s)</td><td style="text-align:center;">~52.56 minutes</td></tr><tr><td style="text-align:center;">99.999% (Five 9’s)</td><td style="text-align:center;">~5.26 minutes</td></tr></tbody></table></div>
+<h4 id="slo-vs-sla">SLO vs SLA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#slo-vs-sla" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>SLO (Service Level Objective)</strong> — Internal performance targets. E.g., “99.9% of web service requests must respond within 300ms.”</li>
+<li><strong>SLA (Service Level Agreement)</strong> — A formal contract with customers that defines the minimum level of service. Violations require refunds or compensation.</li>
+</ul>
+<h4 id="throughput-vs-latency">Throughput vs Latency<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#throughput-vs-latency" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Metric</th><th>Unit</th><th>Definition</th></tr></thead><tbody><tr><td>Server Throughput</td><td>RPS (Requests Per Second)</td><td>Number of requests a server processes per second</td></tr><tr><td>Database Throughput</td><td>QPS (Queries Per Second)</td><td>Number of queries a DB processes per second</td></tr><tr><td>Data Throughput</td><td>Bytes/sec</td><td>Data transfer rate of a network or system</td></tr><tr><td>Latency</td><td>ms</td><td>Response time for a single request</td></tr></tbody></table></div>
+<p><strong>Trade-off relationship:</strong> Increasing throughput (e.g., via batch processing) can increase latency for individual requests. You must find the right balance for your use case.</p>
+<h4 id="resilience-strategies">Resilience Strategies<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#resilience-strategies" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Redundancy</strong> — Keep backup systems on standby at all times</li>
+<li><strong>Fault Tolerance</strong> — Prepare for unexpected failures or attacks</li>
+<li><strong>Graceful Degradation</strong> — Maintain core functionality even when some features are unavailable</li>
+</ul>
+<hr/>
+<h3 id="section-5--networking-tcp-udp-dns-ip-addresses--ip-headers-1440">Section 5 — Networking: TCP, UDP, DNS, IP Addresses &amp; IP Headers (14:40)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#section-5--networking-tcp-udp-dns-ip-addresses--ip-headers-1440" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="the-internet-protocol-suite-layered-model">The Internet Protocol Suite (Layered Model)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-internet-protocol-suite-layered-model" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;graph TD\n    subgraph \&quot;OSI / Internet Protocol Layers\&quot;\n        APP[\&quot;Application Layer&lt;br/>HTTP, FTP, SMTP, DNS&lt;br/>Ports direct data to apps\&quot;]\n        TRANS[\&quot;Transport Layer&lt;br/>TCP (reliable) / UDP (fast)&lt;br/>Port numbers, sequence #s\&quot;]\n        INTERNET[\&quot;Internet Layer&lt;br/>IP Addresses, IP Headers&lt;br/>Routing packets across networks\&quot;]\n        LINK[\&quot;Link Layer&lt;br/>MAC Addresses, Switches&lt;br/>Physical network connections\&quot;]\n        PHYS[\&quot;Physical Hardware&lt;br/>Routers, Firewalls, LANs\&quot;]\n    end\n    APP --> TRANS --> INTERNET --> LINK --> PHYS&quot;">graph TD
+    subgraph &quot;OSI / Internet Protocol Layers&quot;
+        APP[&quot;Application Layer&lt;br/>HTTP, FTP, SMTP, DNS&lt;br/>Ports direct data to apps&quot;]
+        TRANS[&quot;Transport Layer&lt;br/>TCP (reliable) / UDP (fast)&lt;br/>Port numbers, sequence #s&quot;]
+        INTERNET[&quot;Internet Layer&lt;br/>IP Addresses, IP Headers&lt;br/>Routing packets across networks&quot;]
+        LINK[&quot;Link Layer&lt;br/>MAC Addresses, Switches&lt;br/>Physical network connections&quot;]
+        PHYS[&quot;Physical Hardware&lt;br/>Routers, Firewalls, LANs&quot;]
+    end
+    APP --> TRANS --> INTERNET --> LINK --> PHYS
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<h4 id="ip-addresses">IP Addresses<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ip-addresses" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>IPv4</strong> — 32-bit address (~4 billion addresses — running out)</li>
+<li><strong>IPv6</strong> — 128-bit address (transition in progress)</li>
+<li><strong>Public IP</strong> — Unique across the internet</li>
+<li><strong>Private IP</strong> — Unique within a local network</li>
+<li><strong>Static IP</strong> — Permanently assigned</li>
+<li><strong>Dynamic IP</strong> — Changes over time (common for residential connections)</li>
+</ul>
+<h4 id="ip-packets--headers">IP Packets &amp; Headers<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ip-packets--headers" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>When two computers communicate, they send/receive <strong>packets of data</strong>. Each packet contains an <strong>IP Header</strong> with:</p>
+<ul>
+<li>Sender’s IP address</li>
+<li>Receiver’s IP address</li>
+<li>Protocol information</li>
+</ul>
+<p>The data in these packets is formatted according to specific <strong>Application Protocol Data</strong> (e.g., HTTP for web browsing).</p>
+<h4 id="tcp-vs-udp">TCP vs UDP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tcp-vs-udp" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Feature</th><th>TCP (Transmission Control Protocol)</th><th>UDP (User Datagram Protocol)</th></tr></thead><tbody><tr><td>Connection</td><td>Connection-oriented</td><td>Connectionless</td></tr><tr><td>Reliability</td><td>Guaranteed delivery, retransmission on loss</td><td>No guarantee — fire and forget</td></tr><tr><td>Ordering</td><td>Ordered delivery (sequence numbers)</td><td>No ordering</td></tr><tr><td>Speed</td><td>Slower (overhead for reliability)</td><td>Faster</td></tr><tr><td>Key Mechanism</td><td>3-way handshake (SYN → SYN-ACK → ACK)</td><td>No handshake</td></tr><tr><td>Use Cases</td><td>Web browsing, file transfer, email</td><td>Video calls, live streaming, gaming, VoIP</td></tr></tbody></table></div>
+<p><strong>TCP 3-Way Handshake:</strong></p>
+<ol>
+<li>Client sends <strong>SYN</strong> (synchronize) packet</li>
+<li>Server responds with <strong>SYN-ACK</strong></li>
+<li>Client sends <strong>ACK</strong> — connection established</li>
+</ol>
+<h4 id="dns-domain-name-system">DNS (Domain Name System)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dns-domain-name-system" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>The internet’s phone book — translates human-readable domain names (google.com) into IP addresses.</p>
+<p><strong>DNS Resolution Chain:</strong></p>
+<pre><code>Browser Cache → OS Cache → Recursive Resolver → Root Server → TLD Server → Authoritative Server
+</code></pre>
+<p><strong>DNS Record Types:</strong></p>
+<ul>
+<li><strong>A Record</strong> — Maps domain to IPv4 address</li>
+<li><strong>AAAA Record</strong> — Maps domain to IPv6 address</li>
+</ul>
+<p><strong>Oversight:</strong> ICANN (Internet Corporation for Assigned Names and Numbers) coordinates the global IP address space and DNS system. Domain registrars (Namecheap, GoDaddy) are accredited by ICANN.</p>
+<p><strong>Ports:</strong> Combined with IP addresses, ports create unique identifiers for network services:</p>
+<ul>
+<li>Port 80 → HTTP</li>
+<li>Port 443 → HTTPS</li>
+<li>Port 22 → SSH</li>
+<li>Port 53 → DNS</li>
+</ul>
+<hr/>
+<h3 id="section-6--application-layer-protocols-http-websockets-webrtc-mqtt-1903">Section 6 — Application Layer Protocols: HTTP, WebSockets, WebRTC, MQTT (19:03)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#section-6--application-layer-protocols-http-websockets-webrtc-mqtt-1903" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Application protocols sit at the top of the network stack (above TCP/UDP). They define how applications exchange data across a network.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Protocol</th><th>Type</th><th>Use Case</th><th>Key Feature</th></tr></thead><tbody><tr><td><strong>HTTP/HTTPS</strong></td><td>Request-Response</td><td>Web APIs, REST</td><td>Stateless, text-based, methods (GET/POST/PUT/DELETE)</td></tr><tr><td><strong>WebSockets</strong></td><td>Full-duplex persistent</td><td>Real-time apps, chat, notifications</td><td>Long-lived connection, server push</td></tr><tr><td><strong>WebRTC</strong></td><td>Peer-to-peer</td><td>Video/voice calls, file sharing</td><td>Browser-to-browser, no plugins, low latency</td></tr><tr><td><strong>MQTT</strong></td><td>Publish-Subscribe</td><td>IoT devices</td><td>Lightweight, 2-byte overhead, 3 QoS levels, low bandwidth</td></tr><tr><td><strong>AMQP</strong></td><td>Message-oriented middleware</td><td>Enterprise messaging, RabbitMQ</td><td>Robust, secure, advanced routing</td></tr><tr><td><strong>SMTP</strong></td><td>Email transmission</td><td>Sending emails</td><td>Standard protocol for email delivery</td></tr><tr><td><strong>FTP</strong></td><td>File transfer</td><td>Uploading/downloading files</td><td>Built on TCP</td></tr></tbody></table></div>
+<h4 id="http-hypertext-transfer-protocol">HTTP (Hypertext Transfer Protocol)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#http-hypertext-transfer-protocol" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Standard protocol for most web APIs</li>
+<li>Follows a <strong>request-response model</strong></li>
+<li><strong>Stateless</strong> — each request is independent; server stores no context between requests</li>
+<li>Uses status codes: <code>200 OK</code>, <code>404 Not Found</code>, <code>500 Internal Server Error</code></li>
+<li>Methods: GET (fetch), POST (create), PUT (update/replace), PATCH (partial update), DELETE (remove)</li>
+</ul>
+<h4 id="websockets">WebSockets<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#websockets" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Provides <strong>full-duplex communication</strong> over a single long-lived TCP connection</li>
+<li>Allows servers to <strong>push real-time updates</strong> to clients</li>
+<li>Far more efficient than HTTP polling for constant updates</li>
+<li>Ideal for: chat apps, live dashboards, collaborative editors, multiplayer games, notifications</li>
+</ul>
+<h4 id="webrtc-web-real-time-communication">WebRTC (Web Real-Time Communication)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#webrtc-web-real-time-communication" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Enables <strong>browser-to-browser</strong> voice calling, video chat, and file sharing without plugins</li>
+<li>Uses <strong>peer-to-peer</strong> architecture</li>
+<li>Essential for video conferencing, live streaming</li>
+<li>Works with STUN/TURN servers for NAT traversal</li>
+</ul>
+<h4 id="mqtt-message-queuing-telemetry-transport">MQTT (Message Queuing Telemetry Transport)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mqtt-message-queuing-telemetry-transport" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Lightweight</strong> messaging protocol for constrained devices (IoT)</li>
+<li>Optimized for <strong>high-latency or unreliable networks</strong></li>
+<li>Three <strong>QoS (Quality of Service)</strong> levels: 0 (at most once), 1 (at least once), 2 (exactly once)</li>
+<li>Publish/subscribe model with a central broker</li>
+</ul>
+<hr/>
+<h3 id="section-7--api-design-rest-graphql-grpc-2401">Section 7 — API Design: REST, GraphQL, gRPC (24:01)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#section-7--api-design-rest-graphql-grpc-2401" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>An <strong>API (Application Programming Interface)</strong> is a contract that defines:</p>
+<ul>
+<li>What requests can be made</li>
+<li>What format they take</li>
+<li>What responses to expect</li>
+<li>What methods are available</li>
+</ul>
+<p>A well-designed API <strong>hides implementation details</strong> while exposing clean functionality.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Feature</th><th>REST</th><th>GraphQL</th><th>gRPC</th></tr></thead><tbody><tr><td>Data Format</td><td>JSON</td><td>JSON</td><td>Protocol Buffers (binary)</td></tr><tr><td>Protocol</td><td>HTTP/1.1</td><td>HTTP</td><td>HTTP/2</td></tr><tr><td>Endpoint Model</td><td>Multiple endpoints (e.g., <code>/users</code>, <code>/posts</code>)</td><td>Single endpoint (<code>/graphql</code>)</td><td>Service methods in <code>.proto</code> files</td></tr><tr><td>Data Fetching</td><td>Fixed response structure</td><td>Client specifies exact fields</td><td>Defined by service contracts</td></tr><tr><td>Caching</td><td>Native HTTP caching (headers)</td><td>Complex caching</td><td>Not designed for caching</td></tr><tr><td>Streaming</td><td>Limited (polling)</td><td>Subscriptions</td><td>Bidirectional streaming</td></tr><tr><td>Best For</td><td>Public APIs, web/mobile apps</td><td>Complex UIs with varied data needs</td><td>Internal microservice communication</td></tr></tbody></table></div>
+<h4 id="rest-representational-state-transfer">REST (Representational State Transfer)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#rest-representational-state-transfer" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Resource-based</strong> — each URL represents a resource (<code>/users/123</code>)</li>
+<li><strong>Stateless</strong> — each request contains everything needed</li>
+<li>Uses standard HTTP methods</li>
+<li>Supports HTTP caching through headers</li>
+<li>Most common API style</li>
+<li>overfetching / under-fetching</li>
+</ul>
+<h4 id="graphql">GraphQL<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#graphql" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Clients request <strong>exactly the data they need</strong> — nothing more</li>
+<li>Solves <strong>over-fetching</strong> (getting too much data) and <strong>under-fetching</strong> (needing multiple requests)</li>
+<li>Single endpoint for all operations</li>
+<li><strong>Trade-off:</strong> Increases server complexity, makes caching difficult</li>
+</ul>
+<h4 id="grpc-google-remote-procedure-call">gRPC (Google Remote Procedure Call)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#grpc-google-remote-procedure-call" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>High-performance framework using <strong>Protocol Buffers</strong> (binary serialization)</li>
+<li>Methods defined in <code>.proto</code> files</li>
+<li>Supports <strong>bidirectional streaming</strong> over HTTP/2</li>
+<li>Preferred for <strong>internal service-to-service</strong> communication where efficiency matters</li>
+</ul>
+<p><strong>API Design Best Practices:</strong></p>
+<ul>
+<li>Choose the right communication protocol (HTTP, WebSockets, etc.)</li>
+<li>Choose the right data transport mechanism (JSON, Protocol Buffers)</li>
+<li>Implement security: rate limiting, authentication, input validation</li>
+<li>Handle errors gracefully with consistent error formats</li>
+<li>Use proper HTTP status codes</li>
+</ul>
+<hr/>
+<h3 id="section-8--caching--cdns-2919">Section 8 — Caching &amp; CDNs (29:19)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#section-8--caching--cdns-2919" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Often the bottleneck isn’t the web server — it’s the <strong>database server</strong>. Caching temporarily stores data (often in RAM) to serve future requests faster while reducing database load.</p>
+<h4 id="caching-layers">Caching Layers<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#caching-layers" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;graph TD\n    Client[\&quot;Client/Browser\&quot;] --> |\&quot;Browser Cache&lt;br/>Static assets: CSS, JS, images\&quot;| CDN[\&quot;CDN&lt;br/>Geographically distributed\&quot;]\n    CDN --> LB[\&quot;Load Balancer\&quot;]\n    LB --> APP[\&quot;Application Server&lt;br/>In-Memory Cache\&quot;]\n    APP --> REDIS[\&quot;Redis / Memcached&lt;br/>Frequent DB results\&quot;]\n    REDIS --> DB[\&quot;Database&lt;br/>DB Query Cache\&quot;]&quot;">graph TD
+    Client[&quot;Client/Browser&quot;] --> |&quot;Browser Cache&lt;br/>Static assets: CSS, JS, images&quot;| CDN[&quot;CDN&lt;br/>Geographically distributed&quot;]
+    CDN --> LB[&quot;Load Balancer&quot;]
+    LB --> APP[&quot;Application Server&lt;br/>In-Memory Cache&quot;]
+    APP --> REDIS[&quot;Redis / Memcached&lt;br/>Frequent DB results&quot;]
+    REDIS --> DB[&quot;Database&lt;br/>DB Query Cache&quot;]
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<p><strong>Where caching happens:</strong></p>
+<ol>
+<li><strong>Browser Cache</strong> — Stores static assets (CSS, JS, images) on the client side</li>
+<li><strong>CDN (Content Delivery Network)</strong> — Network of geographically distributed servers that cache content closer to users</li>
+<li><strong>Application Cache</strong> — In-memory caches (Redis, Memcached) store frequent DB query results</li>
+<li><strong>Database Query Cache</strong> — Caches identical query results at the database level</li>
+</ol>
+<h4 id="cache-invalidation-strategies">Cache Invalidation Strategies<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cache-invalidation-strategies" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Keeping cache and database in sync is the hardest problem in caching.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Strategy</th><th>Behavior</th><th>Pros</th><th>Cons</th></tr></thead><tbody><tr><td><strong>Write-Through</strong></td><td>Update cache AND database simultaneously on every write</td><td>High consistency, data never stale</td><td>Higher write latency</td></tr><tr><td><strong>Write-Back</strong></td><td>Update cache first, synchronize with DB later (in batches)</td><td>Very fast writes</td><td>Risk of data loss if cache crashes before DB sync</td></tr><tr><td><strong>Write-Around</strong></td><td>Write directly to DB; cache is populated only on read</td><td>Good for infrequently read data</td><td>Cache miss penalty on first read</td></tr><tr><td><strong>Cache-Aside</strong></td><td>App checks cache first; on miss, loads from DB and populates cache</td><td>Most common pattern, flexible</td><td>Cache miss adds latency</td></tr></tbody></table></div>
+<h4 id="eviction-policies-when-cache-is-full">Eviction Policies (when cache is full)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#eviction-policies-when-cache-is-full" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>LRU (Least Recently Used)</strong> — Evicts data not used for the longest time</li>
+<li><strong>LFU (Least Frequently Used)</strong> — Evicts data accessed least often</li>
+<li><strong>FIFO (First In, First Out)</strong> — Evicts oldest entries first</li>
+<li><strong>TTL (Time To Live)</strong> — Automatically expires entries after a set time</li>
+</ul>
+<h4 id="cdn-content-delivery-network">CDN (Content Delivery Network)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cdn-content-delivery-network" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>CDNs are networks of servers spread across multiple locations to store and serve web content.</p>
+<p><strong>CDN delivery modes:</strong></p>
+<ul>
+<li><strong>Pull-based</strong> — CDN fetches data from the origin server on the first user request, then caches it</li>
+<li><strong>Push-based</strong> — Origin server pushes data to the CDN beforehand</li>
+</ul>
+<p><strong>Popular CDN providers:</strong> Cloudflare, Amazon CloudFront, Google Cloud CDN, Microsoft Azure CDN</p>
+<p><strong>CDN use cases as reverse proxies:</strong></p>
+<ul>
+<li>Retrieve content from origin server and cache it closer to users</li>
+<li>Reduce latency for global audiences</li>
+<li>Handle traffic spikes</li>
+</ul>
+<hr/>
+<h3 id="section-9--proxy-servers-forward--reverse-proxies-3633">Section 9 — Proxy Servers: Forward &amp; Reverse Proxies (36:33)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#section-9--proxy-servers-forward--reverse-proxies-3633" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>A <strong>proxy server</strong> acts as an intermediary between a client requesting a resource and the server providing that resource. It receives requests, forwards them, and returns responses.</p>
+<h4 id="types-of-proxy-servers">Types of Proxy Servers<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#types-of-proxy-servers" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li><strong>Forward Proxy</strong> — Sits in front of clients</li>
+<li><strong>Reverse Proxy</strong> — Sits in front of servers</li>
+<li><strong>Open Proxy</strong> — Publicly accessible, often for anonymizing browsing</li>
+<li><strong>Transparent Proxy</strong> — Visible to client, no modification, used for caching/filtering</li>
+<li><strong>Anonymous Proxy</strong> — Identifiable as proxy but hides original IP</li>
+<li><strong>Distorting Proxy</strong> — Provides a fake original IP</li>
+<li><strong>High Anonymity Proxy (Elite Proxy)</strong> — Extremely difficult to detect as a proxy</li>
+</ol>
+<h4 id="forward-proxy">Forward Proxy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#forward-proxy" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><code>Client → [Forward Proxy] → Internet → Target Server
+</code></pre>
+<ul>
+<li>Sits <strong>between clients</strong> and external servers</li>
+<li><strong>Hides the client’s IP address</strong> — the target server sees the proxy’s IP</li>
+<li>Uses: anonymity, content filtering, monitoring employee internet, caching frequently accessed content, bypassing geo-restrictions</li>
+<li>Example: VPNs, Instagram proxies for managing multiple accounts</li>
+</ul>
+<h4 id="reverse-proxy">Reverse Proxy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#reverse-proxy" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><code>Client → [Reverse Proxy] → Backend Servers
+</code></pre>
+<ul>
+<li>Sits <strong>in front of web servers</strong>, intercepting requests from the internet</li>
+<li><strong>Hides the server’s identity</strong> — client interacts only with the proxy</li>
+<li>Uses: load balancing, web acceleration, SSL termination/offloading, caching, security (DDoS protection, WAF)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Aspect</th><th>Forward Proxy</th><th>Reverse Proxy</th></tr></thead><tbody><tr><td>Position</td><td>In front of clients</td><td>In front of servers</td></tr><tr><td>Hides</td><td>Client’s IP address</td><td>Server’s IP address</td></tr><tr><td>Acts on behalf of</td><td>The client</td><td>The server</td></tr><tr><td>Use cases</td><td>Anonymity, content filtering</td><td>Load balancing, security, caching, SSL offloading</td></tr><tr><td>Examples</td><td>VPN, corporate network proxy</td><td>nginx, HAProxy, AWS ELB, Cloudflare</td></tr></tbody></table></div>
+<h4 id="real-world-reverse-proxy-examples">Real-World Reverse Proxy Examples<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#real-world-reverse-proxy-examples" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Load Balancers</strong> (nginx, HAProxy) — Distribute traffic across servers</li>
+<li><strong>CDNs</strong> (Cloudflare, CloudFront) — Cache and deliver content globally</li>
+<li><strong>WAF (Web Application Firewall)</strong> — Inspect traffic, block attacks</li>
+<li><strong>SSL Offloading</strong> — Handle encryption/decryption to offload backend servers</li>
+</ul>
+<hr/>
+<h3 id="section-10--load-balancers-4236">Section 10 — Load Balancers (42:36)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#section-10--load-balancers-4236" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Load balancers distribute incoming network traffic across multiple servers to ensure no single server bears too much load. They increase capacity and reliability of applications.</p>
+<h4 id="load-balancing-algorithms">Load Balancing Algorithms<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#load-balancing-algorithms" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Algorithm</th><th>How It Works</th><th>Best For</th></tr></thead><tbody><tr><td><strong>Round Robin</strong></td><td>Requests distributed sequentially, cycling through servers</td><td>Simple setups, servers of equal capacity</td></tr><tr><td><strong>Least Connections</strong></td><td>Routes to server with fewest open connections</td><td>Variable session lengths</td></tr><tr><td><strong>Least Response Time</strong></td><td>Routes to server with lowest response time + fewest connections</td><td>Latency-sensitive apps</td></tr><tr><td><strong>IP Hash</strong></td><td>Hash of client IP determines which server gets the request</td><td>Session persistence (same client → same server)</td></tr><tr><td><strong>Weighted Round Robin</strong></td><td>Servers assigned weights based on capacity; proportionally distributed</td><td>Heterogeneous server capacities</td></tr><tr><td><strong>Weighted Least Connections</strong></td><td>Least connections + server weights</td><td>Mixed capacity + variable sessions</td></tr><tr><td><strong>Geographical (Geo-routing)</strong></td><td>Routes to server geographically closest to user</td><td>Global services, latency reduction</td></tr><tr><td><strong>Consistent Hashing</strong></td><td>Hash function distributes requests with minimal remapping when servers change</td><td>Distributed caching, minimizing cache misses</td></tr></tbody></table></div>
+<h4 id="health-checks">Health Checks<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#health-checks" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Load balancers run <strong>continuous health checks</strong> on servers. If a server fails, the load balancer automatically stops sending traffic to it and resumes when it recovers.</p>
+<h4 id="load-balancer-types">Load Balancer Types<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#load-balancer-types" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Software:</strong> nginx, HAProxy (configurable, flexible)</li>
+<li><strong>Hardware:</strong> F5 (proprietary, expensive)</li>
+<li><strong>Cloud-Managed:</strong> AWS Elastic Load Balancing (ELB), Google Cloud Load Balancing (auto-scaling, managed)</li>
+</ul>
+<h4 id="the-load-balancer-as-a-single-point-of-failure">The Load Balancer as a Single Point of Failure<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-load-balancer-as-a-single-point-of-failure" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>The load balancer itself can be a <strong>single point of failure</strong>. If it goes down, all servers become unavailable.</p>
+<p><strong>Mitigation strategies:</strong></p>
+<ol>
+<li><strong>Redundancy</strong> — Run multiple load balancer instances (active-passive or active-active failover)</li>
+<li><strong>Health Checks &amp; Monitoring</strong> — Continuous monitoring with auto-failover</li>
+<li><strong>Auto-scaling &amp; Self-Healing</strong> — Automatically replace failed instances</li>
+<li><strong>DNS Failover</strong> — Use DNS to reroute traffic if the primary load balancer fails</li>
+</ol>
+<h4 id="layer-4-vs-layer-7-load-balancing">Layer 4 vs Layer 7 Load Balancing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#layer-4-vs-layer-7-load-balancing" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Layer 4 (Transport Layer)</strong> — Routes based on IP and TCP/UDP ports; faster, less intelligent</li>
+<li><strong>Layer 7 (Application Layer)</strong> — Inspects HTTP headers, cookies, URLs; more features but higher overhead</li>
+</ul>
+<hr/>
+<h3 id="section-11--databases-sharding-replication-acid-vertical--horizontal-scaling-4805">Section 11 — Databases: Sharding, Replication, ACID, Vertical &amp; Horizontal Scaling (48:05)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#section-11--databases-sharding-replication-acid-vertical--horizontal-scaling-4805" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The database is often the <strong>primary bottleneck</strong> in large-scale systems. Understanding database design is critical.</p>
+<h4 id="the-single-server-setup--separation-of-tiers">The Single Server Setup → Separation of Tiers<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-single-server-setup--separation-of-tiers" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Start with a single server handling both web and database. As traffic grows, <strong>separate the web tier from the data tier</strong> so each can scale independently.</p>
+<pre><code>User → DNS → Server (App + DB on same machine)
+</code></pre>
+<p>→ Scales to:</p>
+<pre><code>User → DNS → Load Balancer → [App Server 1, App Server 2, App Server 3] → Database Server (separate)
+</code></pre>
+<h4 id="sql-vs-nosql--how-to-choose">SQL vs NoSQL — How to Choose<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#sql-vs-nosql--how-to-choose" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Feature</th><th>SQL (Relational)</th><th>NoSQL (Non-Relational)</th></tr></thead><tbody><tr><td><strong>Schema</strong></td><td>Fixed, table-based (rows &amp; columns)</td><td>Flexible schema (documents, key-value, graphs, wide-column)</td></tr><tr><td><strong>Examples</strong></td><td>PostgreSQL, MySQL, Oracle</td><td>MongoDB (document), Redis (KV), Cassandra (wide-column), Neo4j (graph)</td></tr><tr><td><strong>Scaling</strong></td><td>Vertical (scale up)</td><td>Horizontal (scale out)</td></tr><tr><td><strong>Transactions</strong></td><td>ACID (Atomicity, Consistency, Isolation, Durability)</td><td>BASE (Basically Available, Soft state, Eventual consistency)</td></tr><tr><td><strong>Relationships</strong></td><td>Strong — supports complex joins</td><td>Weak — denormalized, embedded data</td></tr><tr><td><strong>Best For</strong></td><td>Financial systems, e-commerce, structured data with clear relationships</td><td>High-volume unstructured data, real-time feeds, IoT, rapid writes</td></tr></tbody></table></div>
+<p><strong>Rule of thumb:</strong> SQL when you need strong consistency and structured relationships. NoSQL when you need flexibility, scalability, and fast writes.</p>
+<h4 id="acid-properties-sql">ACID Properties (SQL)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#acid-properties-sql" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Property</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>A</strong>tomicity</td><td>Transaction completes fully or not at all (binary)</td></tr><tr><td><strong>C</strong>onsistency</td><td>Database remains in a valid state before and after transaction</td></tr><tr><td><strong>I</strong>solation</td><td>Concurrent transactions don’t interfere with each other</td></tr><tr><td><strong>D</strong>urability</td><td>Committed data persists even after system failure</td></tr></tbody></table></div>
+<h4 id="vertical-vs-horizontal-scaling">Vertical vs Horizontal Scaling<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#vertical-vs-horizontal-scaling" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><strong>Vertical Scaling (Scale Up):</strong></p>
+<ul>
+<li>Add more power to existing server (more RAM, faster CPU, bigger disk)</li>
+<li>Simple to implement</li>
+<li>Has a <strong>hard ceiling</strong> — you can only add so much to one machine</li>
+<li>Single point of failure remains</li>
+</ul>
+<p><strong>Horizontal Scaling (Scale Out):</strong></p>
+<ul>
+<li>Add more servers to the pool</li>
+<li>Provides <strong>fault tolerance</strong> — if one server dies, others keep serving</li>
+<li>Provides <strong>flexibility</strong> — add servers as demand grows</li>
+<li>Introduces complexity: load balancing, data consistency, distributed coordination</li>
+</ul>
+<h4 id="database-replication">Database Replication<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#database-replication" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Creating multiple copies (replicas) of a database across different servers.</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li><strong>High availability</strong> — if one DB goes down, the app switches to another replica</li>
+<li><strong>Read scalability</strong> — multiple databases can serve read queries</li>
+<li><strong>Fault tolerance</strong></li>
+</ul>
+<p><strong>Replication Methods:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Method</th><th>How It Works</th><th>Pros</th><th>Cons</th></tr></thead><tbody><tr><td><strong>Leader-Follower (Master-Slave)</strong></td><td>Leader handles all writes; propagates to followers; followers handle reads</td><td>Simple, good read scaling</td><td>Writes bottlenecked on leader</td></tr><tr><td><strong>Leader-Leader (Multi-Master)</strong></td><td>Multiple nodes accept writes; changes propagate between them</td><td>Write scaling, no single point of write failure</td><td>Complex conflict resolution</td></tr></tbody></table></div>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;graph LR\n    subgraph \&quot;Leader-Follower Replication\&quot;\n        L[\&quot;Leader DB&lt;br/>(Writes)\&quot;] --> F1[\&quot;Follower 1&lt;br/>(Reads)\&quot;]\n        L --> F2[\&quot;Follower 2&lt;br/>(Reads)\&quot;]\n        L --> F3[\&quot;Follower 3&lt;br/>(Reads)\&quot;]\n    end&quot;">graph LR
+    subgraph &quot;Leader-Follower Replication&quot;
+        L[&quot;Leader DB&lt;br/>(Writes)&quot;] --> F1[&quot;Follower 1&lt;br/>(Reads)&quot;]
+        L --> F2[&quot;Follower 2&lt;br/>(Reads)&quot;]
+        L --> F3[&quot;Follower 3&lt;br/>(Reads)&quot;]
+    end
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<p><strong>Sync vs Async Replication:</strong></p>
+<ul>
+<li><strong>Synchronous</strong> — Changes committed to leader AND replicas simultaneously; guarantees consistency, but slower writes</li>
+<li><strong>Asynchronous</strong> — Changes propagated in background; faster writes, but temporary inconsistency risk</li>
+</ul>
+<p><strong>Conflict Resolution for Leader-Leader:</strong></p>
+<ul>
+<li>Timestamp-based: latest timestamp wins</li>
+<li>Last-write-wins (LWW): most recent write overrides</li>
+<li>Custom conflict resolution logic (application-specific)</li>
+</ul>
+<h4 id="database-sharding-horizontal-partitioning">Database Sharding (Horizontal Partitioning)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#database-sharding-horizontal-partitioning" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>When a database grows too large for a single server, <strong>sharding</strong> distributes data across multiple servers.</p>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;graph TD\n    subgraph \&quot;Sharded Database\&quot;\n        APP[\&quot;Application\&quot;] --> SHARD1[\&quot;Shard 1&lt;br/>Users 1-1000\&quot;]\n        APP --> SHARD2[\&quot;Shard 2&lt;br/>Users 1001-2000\&quot;]\n        APP --> SHARD3[\&quot;Shard 3&lt;br/>Users 2001-3000\&quot;]\n    end&quot;">graph TD
+    subgraph &quot;Sharded Database&quot;
+        APP[&quot;Application&quot;] --> SHARD1[&quot;Shard 1&lt;br/>Users 1-1000&quot;]
+        APP --> SHARD2[&quot;Shard 2&lt;br/>Users 1001-2000&quot;]
+        APP --> SHARD3[&quot;Shard 3&lt;br/>Users 2001-3000&quot;]
+    end
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<p><strong>Shard Key</strong> — Determines how data is assigned to shards:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Method</th><th>How It Works</th><th>Pros</th><th>Cons</th></tr></thead><tbody><tr><td><strong>Range-based</strong></td><td>Data partitioned by ranges of shard key (e.g., IDs 1-1000 → Shard 1)</td><td>Simple, good for range queries</td><td>Risk of hot spots (uneven distribution)</td></tr><tr><td><strong>Hash-based</strong></td><td>Hash function applied to shard key to determine shard</td><td>Even distribution</td><td>Range queries become inefficient</td></tr></tbody></table></div>
+<p><strong>Real-world examples:</strong></p>
+<ul>
+<li>E-commerce: shard by country/region (users from same region → same shard → lower latency)</li>
+<li>Social media: shard by user ID (efficient access to individual user data)</li>
+</ul>
+<p><strong>SQL vs NoSQL sharding:</strong></p>
+<ul>
+<li>Traditional SQL databases don’t offer sharding out of the box — you implement the logic yourself</li>
+<li>Many NoSQL databases (MongoDB, Cassandra) have <strong>built-in sharding support</strong></li>
+</ul>
+<h4 id="summary-replication-vs-sharding">Summary: Replication vs Sharding<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#summary-replication-vs-sharding" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th></th><th>Replication</th><th>Sharding</th></tr></thead><tbody><tr><td><strong>Purpose</strong></td><td>High availability, read scaling</td><td>Horizontal scaling of data</td></tr><tr><td><strong>Data</strong></td><td>Full copy on each node</td><td>Subset of data on each node</td></tr><tr><td><strong>Write Scaling</strong></td><td>Limited (Leader-Leader helps)</td><td>Yes</td></tr><tr><td><strong>Complexity</strong></td><td>Moderate</td><td>High</td></tr><tr><td><strong>Common Combo</strong></td><td>Replication within each shard</td><td>Both techniques used together</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-key-points">📌 Key Points<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-key-points" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>System design is about <strong>trade-offs</strong>, not perfect solutions</li>
+<li><strong>CAP Theorem:</strong> in a distributed system, choose 2 of 3 (Consistency, Availability, Partition Tolerance) — banking → CP, social → AP</li>
+<li><strong>Availability target:</strong> 99.999% (Five 9’s) = ~5 minutes downtime/year</li>
+<li><strong>SLO</strong> = internal performance targets; <strong>SLA</strong> = formal customer contract with penalties</li>
+<li><strong>Throughput and latency</strong> have an inverse relationship — increasing one affects the other</li>
+<li><strong>Caching</strong> can be applied at every layer (browser → CDN → app cache → DB cache); hardest part is invalidation</li>
+<li><strong>Write-through</strong> cache gives consistency at a latency cost; <strong>write-back</strong> is fast but risks data loss</li>
+<li><strong>CDNs</strong> cache content geographically — pull-based (fetch on first request) or push-based (pre-push content)</li>
+<li><strong>Forward proxy</strong> hides the client; <strong>reverse proxy</strong> hides the server</li>
+<li><strong>Reverse proxy</strong> use cases: load balancing, SSL offloading, caching, WAF security</li>
+<li><strong>Load balancer</strong> algorithms: Round Robin (simplest), Least Connections (variable sessions), IP Hash (session stickiness), Consistent Hashing (cache affinity)</li>
+<li><strong>Load balancer itself is a SPOF</strong> — use active-passive failover with health checks</li>
+<li><strong>Layer 4 LB</strong> = IP/TCP routing; <strong>Layer 7 LB</strong> = HTTP-aware routing</li>
+<li><strong>SQL</strong> = ACID, vertical scaling, fixed schema; <strong>NoSQL</strong> = BASE, horizontal scaling, flexible schema</li>
+<li><strong>Leader-Follower replication</strong> scales reads; <strong>Leader-Leader</strong> scales writes with conflict resolution complexity</li>
+<li><strong>Sharding</strong> distributes data across servers via range-based or hash-based shard keys</li>
+<li><strong>Replication + Sharding</strong> are often used together for both HA and horizontal scale</li>
+<li>Never debug in production → replicate in staging → hotfix</li>
+<li>API designs: <strong>REST</strong> for public APIs, <strong>GraphQL</strong> for complex client queries, <strong>gRPC</strong> for internal microservice IPC</li>
+<li>Application protocols: <strong>HTTP</strong> (request-response), <strong>WebSockets</strong> (real-time bidirectional), <strong>WebRTC</strong> (P2P media), <strong>MQTT</strong> (IoT lightweight)</li>
+</ul>
+<h2 id="-connections">🔗 Connections<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-connections" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Relation</th><th>Link</th></tr></thead><tbody><tr><td>Related to</td><td><a href="../system-design-interview-prep" class="internal internal-link alias" data-slug="system-design-interview-prep">System Design Interview Prep</a></td></tr><tr><td>Source</td><td><a href="https://www.youtube.com/watch?v=F2FmTdLtb_4" class="external external-link">YouTube: System Design Concepts Course<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr><tr><td>Follow-up</td><td><a href="../database-deep-dive" class="internal internal-link alias" data-slug="database-deep-dive">Database Deep Dive</a></td></tr><tr><td>Instructor</td><td><a href="https://www.youtube.com/@hayk.simonyan" class="external external-link">Hayk Simonyan<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></td></tr></tbody></table></div>
+<h2 id="-attachments">📎 Attachments<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-attachments" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://www.notion.so/System-Design-Concepts-Course-and-Interview-Prep-Presentation-Slides-dd8abfd72e3e4b8eb3da402db13018cd" class="external external-link">Presentation Slides (Notion)<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.freecodecamp.org/news/learn-system-design-principles/" class="external external-link">freeCodeCamp Course Article<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://levelup.gitconnected.com/system-design-explained-apis-databases-caching-cdns-load-balancing-production-infra-93c5d136fe04" class="external external-link">Course Author Article: System Design Explained<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="️-tags">🏷️ Tags<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-tags" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><a href=".././tags/system-design" class="tag-link internal internal-link alias" data-slug="tags/system-design">system-design</a> <a href=".././tags/architecture" class="tag-link internal internal-link alias" data-slug="tags/architecture">architecture</a> <a href=".././tags/networking" class="tag-link internal internal-link alias" data-slug="tags/networking">networking</a> <a href=".././tags/databases" class="tag-link internal internal-link alias" data-slug="tags/databases">databases</a> <a href=".././tags/caching" class="tag-link internal internal-link alias" data-slug="tags/caching">caching</a> <a href=".././tags/load-balancing" class="tag-link internal internal-link alias" data-slug="tags/load-balancing">load-balancing</a> <a href=".././tags/cap-theorem" class="tag-link internal internal-link alias" data-slug="tags/cap-theorem">cap-theorem</a> <a href=".././tags/api-design" class="tag-link internal internal-link alias" data-slug="tags/api-design">api-design</a> <a href=".././tags/interview-prep" class="tag-link internal internal-link alias" data-slug="tags/interview-prep">interview-prep</a> <a href=".././tags/computer-architecture" class="tag-link internal internal-link alias" data-slug="tags/computer-architecture">computer-architecture</a> <a href=".././tags/cdn" class="tag-link internal internal-link alias" data-slug="tags/cdn">cdn</a> <a href=".././tags/proxy" class="tag-link internal internal-link alias" data-slug="tags/proxy">proxy</a> <a href=".././tags/replication" class="tag-link internal internal-link alias" data-slug="tags/replication">replication</a> <a href=".././tags/sharding" class="tag-link internal internal-link alias" data-slug="tags/sharding">sharding</a> <a href=".././tags/acid" class="tag-link internal internal-link alias" data-slug="tags/acid">acid</a></p></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-48" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#system-design-concepts" data-for="system-design-concepts">System Design Concepts</a></li><li class="depth-1"><a href="#-content" data-for="-content">📝 Content</a></li><li class="depth-2"><a href="#section-1--introduction-0000" data-for="section-1--introduction-0000">Section 1 — Introduction (00:00)</a></li><li class="depth-2"><a href="#section-2--computer-architecture-0039" data-for="section-2--computer-architecture-0039">Section 2 — Computer Architecture (00:39)</a></li><li class="depth-2"><a href="#section-3--production-app-architecture-0422" data-for="section-3--production-app-architecture-0422">Section 3 — Production App Architecture (04:22)</a></li><li class="depth-2"><a href="#section-4--design-requirements-cap-theorem-throughput-latency-slosslas-0712" data-for="section-4--design-requirements-cap-theorem-throughput-latency-slosslas-0712">Section 4 — Design Requirements: CAP Theorem, Throughput, Latency, SLOs/SLAs (07:12)</a></li><li class="depth-2"><a href="#section-5--networking-tcp-udp-dns-ip-addresses--ip-headers-1440" data-for="section-5--networking-tcp-udp-dns-ip-addresses--ip-headers-1440">Section 5 — Networking: TCP, UDP, DNS, IP Addresses &amp; IP Headers (14:40)</a></li><li class="depth-2"><a href="#section-6--application-layer-protocols-http-websockets-webrtc-mqtt-1903" data-for="section-6--application-layer-protocols-http-websockets-webrtc-mqtt-1903">Section 6 — Application Layer Protocols: HTTP, WebSockets, WebRTC, MQTT (19:03)</a></li><li class="depth-2"><a href="#section-7--api-design-rest-graphql-grpc-2401" data-for="section-7--api-design-rest-graphql-grpc-2401">Section 7 — API Design: REST, GraphQL, gRPC (24:01)</a></li><li class="depth-2"><a href="#section-8--caching--cdns-2919" data-for="section-8--caching--cdns-2919">Section 8 — Caching &amp; CDNs (29:19)</a></li><li class="depth-2"><a href="#section-9--proxy-servers-forward--reverse-proxies-3633" data-for="section-9--proxy-servers-forward--reverse-proxies-3633">Section 9 — Proxy Servers: Forward &amp; Reverse Proxies (36:33)</a></li><li class="depth-2"><a href="#section-10--load-balancers-4236" data-for="section-10--load-balancers-4236">Section 10 — Load Balancers (42:36)</a></li><li class="depth-2"><a href="#section-11--databases-sharding-replication-acid-vertical--horizontal-scaling-4805" data-for="section-11--databases-sharding-replication-acid-vertical--horizontal-scaling-4805">Section 11 — Databases: Sharding, Replication, ACID, Vertical &amp; Horizontal Scaling (48:05)</a></li><li class="depth-1"><a href="#-key-points" data-for="-key-points">📌 Key Points</a></li><li class="depth-1"><a href="#-connections" data-for="-connections">🔗 Connections</a></li><li class="depth-1"><a href="#-attachments" data-for="-attachments">📎 Attachments</a></li><li class="depth-1"><a href="#️-tags" data-for="️-tags">🏷️ Tags</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-3426b91c.js" type="module" data-persist="true"></script></html>

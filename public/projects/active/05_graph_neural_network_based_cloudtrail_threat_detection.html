@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>Graph Neural Network based CloudTrail Threat Detection</title><meta charset="utf-8"/><link rel="preload" href="../../index-bb6c1746.css" as="style"/><link rel="preload" href="../../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 5"/><meta property="og:title" content="Graph Neural Network based CloudTrail Threat Detection"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Graph Neural Network based CloudTrail Threat Detection"/><meta name="twitter:description" content="Graph Neural Network based CloudTrail Threat Detection TL;DR CloudTrail logs are naturally graph-structured: each API call connects an entity (user/role) to a resource."/><meta property="og:description" content="Graph Neural Network based CloudTrail Threat Detection TL;DR CloudTrail logs are naturally graph-structured: each API call connects an entity (user/role) to a resource."/><meta property="og:image:alt" content="Graph Neural Network based CloudTrail Threat Detection TL;DR CloudTrail logs are naturally graph-structured: each API call connects an entity (user/role) to a resource."/><meta property="og:image" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/static/og-image.png"/><meta property="og:image:type" content="image/.png"/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/projects/active/05_graph_neural_network_based_cloudtrail_threat_detection"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/projects/active/05_graph_neural_network_based_cloudtrail_threat_detection"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Graph Neural Network based CloudTrail Threat Detection TL;DR CloudTrail logs are naturally graph-structured: each API call connects an entity (user/role) to a resource."/><meta name="generator" content="Quartz"/><link href="../../index-bb6c1746.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../component-7262b5a7.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/></head><body data-slug="projects/active/05_graph_neural_network_based_cloudtrail_threat_detection" data-basepath><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">Quartz 5</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="Search" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something..." placeholder="Search for something..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="Dark mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="Reader mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-46" aria-label="Explorer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-46" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../projects/">Projects</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../projects/active/">Active</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Graph Neural Network based CloudTrail Threat Detection</a></div></nav><h1 class="article-title">Graph Neural Network based CloudTrail Threat Detection</h1><details class="note-properties metadata-container" open data-collapsed="false"><summary class="note-properties-header"><span class="note-properties-title">Properties</span><span class="note-properties-count">2</span></summary><table class="note-properties-table"><tbody><tr class="note-properties-row metadata-property"><td class="note-properties-key metadata-property-key">tags</td><td class="note-properties-value metadata-property-value"><span class="note-properties-tags"><a href="../../tags/project" class="internal internal-link tag-link">project</a><span class="note-properties-separator">, </span><a href="../../tags/cybersecurity" class="internal internal-link tag-link">cybersecurity</a><span class="note-properties-separator">, </span><a href="../../tags/machine-learning" class="internal internal-link tag-link">machine-learning</a><span class="note-properties-separator">, </span><a href="../../tags/gnns" class="internal internal-link tag-link">gnns</a><span class="note-properties-separator">, </span><a href="../../tags/aws" class="internal internal-link tag-link">aws</a><span class="note-properties-separator">, </span><a href="../../tags/cloudtrail" class="internal internal-link tag-link">cloudtrail</a></span></td></tr><tr class="note-properties-row metadata-property"><td class="note-properties-key metadata-property-key">aliases</td><td class="note-properties-value metadata-property-value"><span class="note-properties-list"><span class="note-properties-text">GNN CloudTrail Threat Detection</span><span class="note-properties-separator">, </span><span class="note-properties-text">GNN Cloud Threat Detection</span></span></td></tr></tbody></table></details><p show-comma="true" class="content-meta"><time datetime="2026-08-06T18:30:00.000Z">Aug 07, 2026</time><span>8 min read</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="graph-neural-network-based-cloudtrail-threat-detection">Graph Neural Network based CloudTrail Threat Detection<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#graph-neural-network-based-cloudtrail-threat-detection" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<blockquote class="callout abstract" data-callout="abstract">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>TL;DR </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>CloudTrail logs are naturally <strong>graph-structured</strong>: each API call connects an entity (user/role) to a resource. Rule-based and sequential models miss <strong>multi-step, relational attack patterns</strong> — GNNs don’t. This project builds a <strong>temporal GNN (TGN)</strong> that scores CloudTrail events for anomalies, reducing alert noise and surfacing high-risk, context-rich detections.</p>
+</div>
+</blockquote>
+<hr/>
+<h2 id="️-key-facts">🗂️ Key Facts<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-key-facts" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td><strong>Problem Statement No.</strong></td><td><code>PSAIAC_211</code></td></tr><tr><td><strong>Domain</strong></td><td>Cyber Security</td></tr><tr><td><strong>Technical Complexity</strong></td><td>⭐⭐⭐⭐⭐ Research-Intensive</td></tr><tr><td><strong>Implementation Feasibility</strong></td><td>Moderate</td></tr><tr><td><strong>Publication Potential</strong></td><td>★★★★★ (NDSS / IEEE S&amp;P / ACM CCS / NeurIPS)</td></tr><tr><td><strong>AI Component</strong></td><td>Temporal Graph Neural Network (TGN)</td></tr><tr><td><strong>Primary SDG</strong></td><td>🕊️ SDG 16 – Peace, Justice &amp; Strong Institutions</td></tr><tr><td><strong>Secondary SDG</strong></td><td>SDG 9 – Industry, Innovation &amp; Infrastructure</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-problem-statement">🎯 Problem Statement<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-problem-statement" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>CloudTrail is AWS’s service that logs <strong>all API calls</strong> in an account. Analyzing these logs is critical for detecting <strong>insider threats</strong> and <strong>compromised credentials</strong>.</p>
+<p><strong>Why traditional analysis fails:</strong></p>
+<ul>
+<li>Rule-based systems &amp; sequential models (LSTM) cannot capture <strong>complex, multi-step attack patterns</strong>.</li>
+<li>A single action looks benign in isolation — the <em>relational context</em> is what exposes the threat.</li>
+</ul>
+<blockquote class="callout quote" data-callout="quote">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Supporting research </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Madireddy <em>et al.</em> (2025) — traditional systems <em>“fail to recognize emerging attack vectors such as privilege escalation or insider misuse”</em> due to ignoring relational context. Their GNN beat LSTM/GCN baselines on real IAM data.</p>
+<p>Nandan <em>et al.</em> (2026) — a Temporal Graph Network (TGN) on real AWS CloudTrail logs cut alerts from <strong>thousands → ~1/hour</strong> while surfacing medium/high-risk events.</p>
+</div>
+</blockquote>
+<p><strong>Modeling approach:</strong> Nodes = entities (users, roles, resources); Edges = interactions (API calls). A GNN learns <strong>relational + temporal</strong> patterns indicative of threats.</p>
+<hr/>
+<h2 id="-sdg-mapping">🌍 SDG Mapping<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-sdg-mapping" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>SDG</th><th>Type</th><th>Relevance</th></tr></thead><tbody><tr><td><strong>SDG 16</strong> — Peace, Justice &amp; Strong Institutions</td><td>Primary</td><td>Resilience of critical institutions via strong cyber infrastructure; aligns with <em>AI-driven zero-trust access analytics</em></td></tr><tr><td><strong>SDG 9</strong> — Industry, Innovation &amp; Infrastructure</td><td>Secondary</td><td>GNN cloud-security solutions are innovation in IT infrastructure</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-existing-research--state-of-the-art">📚 Existing Research &amp; State of the Art<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-existing-research--state-of-the-art" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Cutting-edge area:</strong> GNNs are rapidly entering cybersecurity (2025–26 is the hot window).</li>
+<li><strong>Madireddy et al. (2025):</strong> GNN for IAM logs → superior detection of insider threats vs. LSTM/GCN baselines.</li>
+<li><strong>Nandan et al. (2026):</strong> TGN on CloudTrail across five companies → dramatic alert reduction vs. rule-based baselines.</li>
+<li><strong>Earlier work (2019–2023):</strong> GNNs used for <em>offline</em> network intrusion (flow graphs) — little focus on cloud audit logs.</li>
+</ul>
+<blockquote class="callout note" data-callout="note">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Breakthrough insight </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>CloudTrail data is <em>naturally graphical</em>, and <strong>temporal / attention-based GNNs</strong> adapt to evolving behavior — a very recent (2025–26) breakthrough.</p>
+</div>
+</blockquote>
+<blockquote class="callout warning" data-callout="warning">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Open-source gap </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>AWS GuardDuty is proprietary. <strong>No open-source GNN-based cloud security tool exists</strong> — that’s your opportunity.</p>
+</div>
+</blockquote>
+<hr/>
+<h2 id="-research-gap">🔍 Research Gap<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-research-gap" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The field is bleeding-edge, leaving clear openings:</p>
+<ol>
+<li><strong>Explainability</strong> — analysts distrust black-box GNN alerts.</li>
+<li><strong>Scalability</strong> — multi-account / multi-cloud scenarios.</li>
+<li><strong>Integration</strong> — combining with network logs &amp; endpoint telemetry.</li>
+<li><strong>Adaptivity</strong> — incremental learning as behaviors change.</li>
+</ol>
+<blockquote>
+<p>💡 <em>You could explore</em> <strong>interpretable GNNs (e.g., GraphLIME)</strong> for CloudTrail, or <strong>incremental/online learning</strong> to keep up with drift.</p>
+</blockquote>
+<hr/>
+<h2 id="-innovation-opportunities">💡 Innovation Opportunities<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-innovation-opportunities" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>#</th><th>Idea</th><th>Description</th></tr></thead><tbody><tr><td>1</td><td><strong>Explainable GNN</strong></td><td>GNN explainers highlighting which graph events drove an alert</td></tr><tr><td>2</td><td><strong>Edge AI for Logs</strong></td><td>Lightweight graph models on VMs; only forward alerts centrally</td></tr><tr><td>3</td><td><strong>Multi-Agent Simulation</strong></td><td>Attacker vs. benign agents → train RL-based detection</td></tr><tr><td>4</td><td><strong>RAG for Threat Intel</strong></td><td>After GNN flags anomaly, RAG fetches similar AWS docs / threat reports</td></tr><tr><td>5</td><td><strong>Continual Learning</strong></td><td>Adaptive retraining with new threat types</td></tr><tr><td>6</td><td><strong>Hybrid GNN-Transformer</strong></td><td>Feed temporal graph embeddings into a Transformer for extra context</td></tr><tr><td>7</td><td><strong>Digital Twin Cloud Env</strong></td><td>Parallel copy of CloudTrail graph for safe defensive testing</td></tr><tr><td>8</td><td><strong>Privacy-Preserving Logging</strong></td><td>Federated / encrypted GNN across accounts</td></tr><tr><td>9</td><td><strong>Synthetic Data Augmentation</strong></td><td>GANs generate rare attack graphs for training</td></tr><tr><td>10</td><td><strong>Cross-Cloud Graphs</strong></td><td>Link identities across AWS/Azure via federated identity</td></tr></tbody></table></div>
+<hr/>
+<h2 id="️-suggested-architecture">⚙️ Suggested Architecture<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-suggested-architecture" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;flowchart TD\n    subgraph SRC[\&quot;🛡️ 1 · DATA SOURCE\&quot;]\n        CT[\&quot;📜 AWS CloudTrail&lt;br/>&lt;i>API activity trail&lt;/i>\&quot;]\n        CW[\&quot;📊 CloudWatch Logs\&quot;]\n        EB[\&quot;⚡ EventBridge\&quot;]\n    end\n\n    subgraph ING[\&quot;📥 2 · INGESTION\&quot;]\n        S3RAW[\&quot;🪣 S3 Raw Bucket&lt;br/>&lt;i>cloudtrail-logs&lt;/i>\&quot;]\n        FW[\&quot;🚀 Kinesis Firehose&lt;br/>&lt;i>near-real-time stream&lt;/i>\&quot;]\n        LAM1[\&quot;⚡ Lambda&lt;br/>&lt;i>event normalizer&lt;/i>\&quot;]\n    end\n\n    subgraph ETL[\&quot;🔄 3 · ETL &amp; GRAPH BUILD\&quot;]\n        GLUE[\&quot;🧬 AWS Glue ETL&lt;br/>&lt;i>JSON → nodes + edges&lt;/i>\&quot;]\n        NEP[\&quot;🌐 Amazon Neptune&lt;br/>&lt;i>property graph&lt;/i>\&quot;]\n        FEAT[\&quot;🗃️ S3 Feature Store&lt;br/>&lt;i>Parquet · train/val/test&lt;/i>\&quot;]\n    end\n\n    subgraph AIB[\&quot;🎓 4 · MODEL TRAINING\&quot;]\n        SM[\&quot;🤖 SageMaker Studio&lt;br/>&lt;i>GNN / TGN · GPU&lt;/i>\&quot;]\n        REG[\&quot;🏷️ Model Registry&lt;br/>&lt;i>versioned + approved&lt;/i>\&quot;]\n    end\n\n    subgraph SER[\&quot;🚀 5 · SERVING\&quot;]\n        EKS[\&quot;☸️ EKS / GPU EC2&lt;br/>&lt;i>TGN inference service&lt;/i>\&quot;]\n        ENDP[\&quot;🔌 Inference Endpoint&lt;br/>&lt;i>anomaly scores / sec&lt;/i>\&quot;]\n    end\n\n    subgraph SEC[\&quot;🚨 6 · DETECTION &amp; RESPONSE\&quot;]\n        SH[\&quot;🛰️ AWS Security Hub\&quot;]\n        SNS[\&quot;📨 SNS Topics\&quot;]\n        LAM2[\&quot;🛠️ Lambda&lt;br/>&lt;i>auto-mitigation&lt;/i>\&quot;]\n        DASH[\&quot;📈 Kibana / QuickSight&lt;br/>&lt;i>alert + context dashboard&lt;/i>\&quot;]\n    end\n\n    subgraph USR[\&quot;👥 7 · OPERATORS\&quot;]\n        A1[\&quot;🧑‍💻 Security Analyst\&quot;]\n        A2[\&quot;👨‍💻 Cloud Admin\&quot;]\n    end\n\n    CT -->|\&quot;batch export\&quot;| S3RAW\n    CT -->|\&quot;real-time\&quot;| CW\n    CW --> EB\n\n    S3RAW -->|\&quot;stream\&quot;| FW\n    FW --> LAM1\n    S3RAW -->|\&quot;batch\&quot;| GLUE\n\n    LAM1 -->|\&quot;normalized events\&quot;| GLUE\n    GLUE -->|\&quot;graph load\&quot;| NEP\n    GLUE -->|\&quot;features\&quot;| FEAT\n\n    FEAT -->|\&quot;train\&quot;| SM\n    NEP -->|\&quot;graph snapshots\&quot;| SM\n    SM -->|\&quot;register\&quot;| REG\n    REG -->|\&quot;approve + deploy\&quot;| EKS\n    EKS --> ENDP\n\n    ENDP -->|\&quot;scores > threshold\&quot;| SH\n    ENDP -->|\&quot;top anomalies\&quot;| DASH\n    SH -->|\&quot;findings\&quot;| SNS\n    SNS -->|\&quot;notify\&quot;| LAM2\n    SNS -->|\&quot;notify\&quot;| A2\n    DASH --> A1\n    LAM2 -->|\&quot;revoke creds / isolate\&quot;| CT\n\n    style SRC fill:#FFF7E6,stroke:#FF9900,stroke-width:2px\n    style ING fill:#E6F0FF,stroke:#3B82F6,stroke-width:2px\n    style ETL fill:#E6FFF7,stroke:#10B981,stroke-width:2px\n    style AIB fill:#F3E8FF,stroke:#8B5CF6,stroke-width:2px\n    style SER fill:#EDE9FE,stroke:#6366F1,stroke-width:2px\n    style SEC fill:#FEE2E2,stroke:#EF4444,stroke-width:2px\n    style USR fill:#FEF3C7,stroke:#F59E0B,stroke-width:2px\n\n    linkStyle default stroke:#94A3B8,stroke-width:2px&quot;">flowchart TD
+    subgraph SRC[&quot;🛡️ 1 · DATA SOURCE&quot;]
+        CT[&quot;📜 AWS CloudTrail&lt;br/>&lt;i>API activity trail&lt;/i>&quot;]
+        CW[&quot;📊 CloudWatch Logs&quot;]
+        EB[&quot;⚡ EventBridge&quot;]
+    end
+
+    subgraph ING[&quot;📥 2 · INGESTION&quot;]
+        S3RAW[&quot;🪣 S3 Raw Bucket&lt;br/>&lt;i>cloudtrail-logs&lt;/i>&quot;]
+        FW[&quot;🚀 Kinesis Firehose&lt;br/>&lt;i>near-real-time stream&lt;/i>&quot;]
+        LAM1[&quot;⚡ Lambda&lt;br/>&lt;i>event normalizer&lt;/i>&quot;]
+    end
+
+    subgraph ETL[&quot;🔄 3 · ETL &amp; GRAPH BUILD&quot;]
+        GLUE[&quot;🧬 AWS Glue ETL&lt;br/>&lt;i>JSON → nodes + edges&lt;/i>&quot;]
+        NEP[&quot;🌐 Amazon Neptune&lt;br/>&lt;i>property graph&lt;/i>&quot;]
+        FEAT[&quot;🗃️ S3 Feature Store&lt;br/>&lt;i>Parquet · train/val/test&lt;/i>&quot;]
+    end
+
+    subgraph AIB[&quot;🎓 4 · MODEL TRAINING&quot;]
+        SM[&quot;🤖 SageMaker Studio&lt;br/>&lt;i>GNN / TGN · GPU&lt;/i>&quot;]
+        REG[&quot;🏷️ Model Registry&lt;br/>&lt;i>versioned + approved&lt;/i>&quot;]
+    end
+
+    subgraph SER[&quot;🚀 5 · SERVING&quot;]
+        EKS[&quot;☸️ EKS / GPU EC2&lt;br/>&lt;i>TGN inference service&lt;/i>&quot;]
+        ENDP[&quot;🔌 Inference Endpoint&lt;br/>&lt;i>anomaly scores / sec&lt;/i>&quot;]
+    end
+
+    subgraph SEC[&quot;🚨 6 · DETECTION &amp; RESPONSE&quot;]
+        SH[&quot;🛰️ AWS Security Hub&quot;]
+        SNS[&quot;📨 SNS Topics&quot;]
+        LAM2[&quot;🛠️ Lambda&lt;br/>&lt;i>auto-mitigation&lt;/i>&quot;]
+        DASH[&quot;📈 Kibana / QuickSight&lt;br/>&lt;i>alert + context dashboard&lt;/i>&quot;]
+    end
+
+    subgraph USR[&quot;👥 7 · OPERATORS&quot;]
+        A1[&quot;🧑‍💻 Security Analyst&quot;]
+        A2[&quot;👨‍💻 Cloud Admin&quot;]
+    end
+
+    CT -->|&quot;batch export&quot;| S3RAW
+    CT -->|&quot;real-time&quot;| CW
+    CW --> EB
+
+    S3RAW -->|&quot;stream&quot;| FW
+    FW --> LAM1
+    S3RAW -->|&quot;batch&quot;| GLUE
+
+    LAM1 -->|&quot;normalized events&quot;| GLUE
+    GLUE -->|&quot;graph load&quot;| NEP
+    GLUE -->|&quot;features&quot;| FEAT
+
+    FEAT -->|&quot;train&quot;| SM
+    NEP -->|&quot;graph snapshots&quot;| SM
+    SM -->|&quot;register&quot;| REG
+    REG -->|&quot;approve + deploy&quot;| EKS
+    EKS --> ENDP
+
+    ENDP -->|&quot;scores > threshold&quot;| SH
+    ENDP -->|&quot;top anomalies&quot;| DASH
+    SH -->|&quot;findings&quot;| SNS
+    SNS -->|&quot;notify&quot;| LAM2
+    SNS -->|&quot;notify&quot;| A2
+    DASH --> A1
+    LAM2 -->|&quot;revoke creds / isolate&quot;| CT
+
+    style SRC fill:#FFF7E6,stroke:#FF9900,stroke-width:2px
+    style ING fill:#E6F0FF,stroke:#3B82F6,stroke-width:2px
+    style ETL fill:#E6FFF7,stroke:#10B981,stroke-width:2px
+    style AIB fill:#F3E8FF,stroke:#8B5CF6,stroke-width:2px
+    style SER fill:#EDE9FE,stroke:#6366F1,stroke-width:2px
+    style SEC fill:#FEE2E2,stroke:#EF4444,stroke-width:2px
+    style USR fill:#FEF3C7,stroke:#F59E0B,stroke-width:2px
+
+    linkStyle default stroke:#94A3B8,stroke-width:2px
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<p><strong>Pipeline stages:</strong></p>
+<ol>
+<li><strong>Log Collection</strong> — CloudTrail logs pushed to S3 or Kinesis.</li>
+<li><strong>Data Processing</strong> — Lambda or Glue streaming job transforms logs → graph edges + node features.</li>
+<li><strong>Graph Database</strong> — <em>Optional</em> Neo4j for entity graph; or in-memory graphs for GNN input.</li>
+<li><strong>AI Models</strong> — GPU-enabled server running the GNN (Python/Flask serving predictions).</li>
+<li><strong>SIEM Integration</strong> — Alerts forwarded to AWS Security Hub or custom Kibana dashboard.</li>
+<li><strong>Cloud-Native</strong> — SageMaker / GPU EC2 for training; S3 for intermediate graphs; CloudWatch alerting.</li>
+<li><strong>Security</strong> — Tightly-scoped IAM roles; secure credential storage.</li>
+<li><strong>User Interaction</strong> — Analysts view flagged events + their context graph in a dashboard.</li>
+</ol>
+<hr/>
+<h2 id="-tech-stack">🧰 Tech Stack<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-tech-stack" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Layer</th><th>Choice</th></tr></thead><tbody><tr><td><strong>Language</strong></td><td>Python</td></tr><tr><td><strong>GNN Frameworks</strong></td><td>PyTorch Geometric (Temporal), DGL</td></tr><tr><td><strong>Graph Utilities</strong></td><td>NetworkX</td></tr><tr><td><strong>Cloud</strong></td><td>AWS (S3, EC2/GPU, SageMaker)</td></tr><tr><td><strong>Database</strong></td><td>Neo4j (optional) or Amazon Neptune</td></tr><tr><td><strong>AWS Access</strong></td><td>Boto3</td></tr><tr><td><strong>Version Control</strong></td><td>Git / GitHub (private — contains AWS keys)</td></tr><tr><td><strong>Deployment</strong></td><td>Docker (GPU support) + optional EKS</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-ai-component">🧠 AI Component<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-ai-component" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Model:</strong> Temporal GNN (like TGN) scoring each event; attention mechanisms on nodes/edges.</li>
+<li><strong>Feature Engineering:</strong> Encode entities (users, roles, IPs) and actions (API calls) into embeddings.</li>
+<li><strong>Pipeline:</strong> CloudTrail logs (JSON) → normalize to graph → batch-feed GNN → anomaly scoring.</li>
+<li><strong>Training Modes:</strong>
+<ul>
+<li><em>Supervised</em> — if labeled anomalies available.</li>
+<li><em>Unsupervised / Self-supervised</em> — link prediction or reconstruction.</li>
+</ul>
+</li>
+<li><strong>Metrics:</strong> Precision, Recall, F1 (known attacks); ROC-AUC (anomaly scoring). Alert count per hour as a precision proxy.</li>
+</ul>
+<hr/>
+<h2 id="-dataset-availability">📊 Dataset Availability<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-dataset-availability" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Source</th><th>Feasibility</th></tr></thead><tbody><tr><td><strong>Open data</strong></td><td>ArXiv paper [83] used data from 5 orgs (likely not public). Stand-in: CICIDS flows as a graph</td></tr><tr><td><strong>AWS free tier</strong></td><td>Limited CloudTrail use — not realistic for training</td></tr><tr><td><strong>Synthetic logs</strong></td><td>Generate CloudTrail-like logs: random IAM actions, or replay attack patterns from research</td></tr><tr><td><strong>Public CloudTrail</strong></td><td>⚠️ <strong>No standard public dataset exists</strong> — rely on synthetic or small live logging</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-research-papers-20232026">📄 Research Papers (2023–2026)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-research-papers-20232026" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>#</th><th>Authors (Year)</th><th>Title / Venue</th><th>Relevance</th></tr></thead><tbody><tr><td>1</td><td>Madireddy <em>et al.</em> (2025)</td><td>GNN-Based Adaptive Threat Detection for Cloud IAM Logs — <em>ArXiv</em></td><td>Core baseline; GNN on IAM logs, superior precision/recall</td></tr><tr><td>2</td><td>Nandan <em>et al.</em> (2026)</td><td>Improved Cloud Threat Detection via GNNs — <em>ArXiv 2606.28923</em></td><td>Industry TGN case study; alert reduction</td></tr><tr><td>3</td><td>Zhang <em>et al.</em> (2025)</td><td>Graph Neural Networks for Intrusion Detection — <em>IEEE TNSM</em></td><td>Survey + GNN on attack graphs</td></tr><tr><td>4</td><td>Lee <em>et al.</em> (2024)</td><td>Explainable GNNs for Security — <em>ACM CCS Workshop</em></td><td>Interpreting GNN alerts</td></tr><tr><td>5</td><td>Ferretti <em>et al.</em> (2024)</td><td>Federated Anomaly Detection in Cloud — <em>ACM CloudSec</em></td><td>Cross-account collaborative learning</td></tr><tr><td>6</td><td>Patel <em>et al.</em> (2023)</td><td>Applying RAG to Threat Hunting — <em>USENIX WOOT</em></td><td>LLM enrichment of SIEM alerts</td></tr><tr><td>7</td><td>Kumar <em>et al.</em> (2023)</td><td>Temporal Graph Networks in Security Analytics — <em>NeurIPS WS</em></td><td>TGN intro for cybersecurity</td></tr><tr><td>8</td><td>Davis <em>et al.</em> (2025)</td><td>Edge Deployment of Security Analytics — <em>IEEE IoT</em></td><td>Running anomaly models at the edge</td></tr><tr><td>9</td><td>Suzuki <em>et al.</em> (2023)</td><td>CloudTrail Insights with ML — <em>AWS Security Blog</em></td><td>Practical ML detection guidance</td></tr><tr><td>10</td><td>Ali <em>et al.</em> (2025)</td><td>GraphLIME: Explaining Graph Models — <em>KDD</em></td><td>Method to explain GNN alerts</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-evaluation-metrics">🎯 Evaluation Metrics<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-evaluation-metrics" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Metric</th><th>Purpose</th></tr></thead><tbody><tr><td><strong>Detection Rate</strong></td><td>True-positive rate for simulated insider/breach scenarios</td></tr><tr><td><strong>Precision / F1</strong></td><td>Low false-positive rate is critical — measure F1</td></tr><tr><td><strong>Alert Reduction</strong></td><td>Flagged events/hr vs. baseline rules (as in [83])</td></tr><tr><td><strong>Throughput</strong></td><td>Edges processed/sec; inference latency</td></tr><tr><td><strong>Adaptability</strong></td><td>Speed of learning new patterns (online learning)</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-novel-features">✨ Novel Features<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-novel-features" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li><strong>Contextual Threat Visualization</strong> — subgraph of entities/events behind each alert, with GNN attention highlighted.</li>
+<li><strong>Multi-Account Correlation</strong> — connect graphs across AWS accounts to catch cross-account lateral movement.</li>
+<li><strong>Self-Adaptive Thresholds</strong> — anomaly thresholds adjust to workload / time-of-day → less noise.</li>
+<li><strong>Automated Mitigation</strong> — Lambda auto-disables compromised credentials on high-confidence detections.</li>
+<li><strong>Threat Fingerprint Database</strong> — library of known attack graph motifs; match new alerts against them.</li>
+<li><strong>Interactive Query</strong> — “What led to this alert?” → graph-based reasoning (RAG/LLM-driven UI).</li>
+<li><strong>Federated Cloud Threat Intel</strong> — share anonymized attack subgraphs across teams.</li>
+<li><strong>Temporal Anomaly Highlighting</strong> — show behavior deviation over time (e.g., hours of activity).</li>
+<li><strong>Contextual User Alerts</strong> — Slack/email alerts with auto-generated natural-language explanations.</li>
+<li><strong>Simulation Mode</strong> — “what-if” red-team scenarios on stored logs to pre-evaluate defenses.</li>
+</ol>
+<hr/>
+<h2 id="-expected-deliverables">📦 Expected Deliverables<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-expected-deliverables" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul class="contains-task-list">
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> <strong>Working Software</strong> — GNN detection module processing CloudTrail logs (offline or near-real-time)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> <strong>GitHub Repository</strong> — graph construction, GNN training, CLI/UI for analysis</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> <strong>Research Paper</strong> — GNN architecture + evaluation (simulated or real data)</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> <strong>Technical Documentation</strong> — ingesting AWS logs, building graphs, running the model</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> <strong>Demo Video</strong> — live deployment on sample logs with alerts + visualizations</li>
+<li class="task-list-item" data-task=" "><input type="checkbox" class="checkbox-toggle"/> <strong>Dataset</strong> — sample CloudTrail logs with annotated/simulated incidents</li>
+</ul>
+<hr/>
+<h2 id="️-risks--mitigations">⚠️ Risks &amp; Mitigations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#️-risks--mitigations" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Risk</th><th>Type</th><th>Mitigation</th></tr></thead><tbody><tr><td>Noisy logs → inaccurate graph</td><td>Technical</td><td>Robust parsing + entity resolution (IP/user mapping)</td></tr><tr><td>GNN overfitting</td><td>Technical</td><td>Regularization; validate on held-out logs</td></tr><tr><td>Limited real attack labels</td><td>Research</td><td>Synthetic attacks (e.g., AWS offensive-security toolkits) for ground truth</td></tr><tr><td>Voluminous / sensitive logs</td><td>Dataset</td><td>Sanitize or simulate sample data</td></tr><tr><td>GNN tuning complexity</td><td>Deployment</td><td>Start with GCN baseline, then extend to temporal GNN</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-resume-value">📈 Resume Value<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-resume-value" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Area</th><th>Value</th></tr></thead><tbody><tr><td>AI/ML</td><td>🔴 Very High (GNN, PyTorch, advanced modeling)</td></tr><tr><td>Software Engineering</td><td>🟡 Moderate (data engineering, cloud logs)</td></tr><tr><td>Cybersecurity</td><td>🔴 High (cloud security specialization)</td></tr><tr><td>Cloud Computing</td><td>🔴 High (AWS infrastructure)</td></tr><tr><td>Research</td><td>🔴 Very Strong (leading-edge, publishable)</td></tr><tr><td>Blockchain/Web3</td><td>⚪ None (unless federated intel uses a ledger)</td></tr></tbody></table></div>
+<hr/>
+<h2 id="-future-scope">🚀 Future Scope<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-future-scope" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>Could seed a <strong>PhD</strong> in AI for cybersecurity.</li>
+<li>Potential <strong>startup</strong> product (cloud security SaaS).</li>
+<li>Extend into <strong>open-source</strong> detection tools.</li>
+<li>GNN engine may be <strong>patentable</strong> if a novel architecture emerges.</li>
+<li>Major cloud providers (AWS, Azure, GCP) actively seek advanced threat detection — adoption potential is real.</li>
+</ul>
+<hr/>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Build-order suggestion </p></div>
+                  
+                </div>
+</blockquote>
+<pre><button class="expand-button" aria-label="Expand mermaid diagram" data-view-component="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></button><code class="mermaid" data-clipboard="&quot;timeline\n    title Build Roadmap\n    Phase 1 : Synthetic CloudTrail logs → graph construction\n    Phase 2 : GCN baseline + evaluation metrics\n    Phase 3 : Temporal GNN (TGN) model\n    Phase 4 : Explainability + analyst dashboard\n    Phase 5 : Research paper + demo video&quot;">timeline
+    title Build Roadmap
+    Phase 1 : Synthetic CloudTrail logs → graph construction
+    Phase 2 : GCN baseline + evaluation metrics
+    Phase 3 : Temporal GNN (TGN) model
+    Phase 4 : Explainability + analyst dashboard
+    Phase 5 : Research paper + demo video
+</code><div id="mermaid-container" role="dialog"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-45" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#graph-neural-network-based-cloudtrail-threat-detection" data-for="graph-neural-network-based-cloudtrail-threat-detection">Graph Neural Network based CloudTrail Threat Detection</a></li><li class="depth-1"><a href="#️-key-facts" data-for="️-key-facts">🗂️ Key Facts</a></li><li class="depth-1"><a href="#-problem-statement" data-for="-problem-statement">🎯 Problem Statement</a></li><li class="depth-1"><a href="#-sdg-mapping" data-for="-sdg-mapping">🌍 SDG Mapping</a></li><li class="depth-1"><a href="#-existing-research--state-of-the-art" data-for="-existing-research--state-of-the-art">📚 Existing Research &amp; State of the Art</a></li><li class="depth-1"><a href="#-research-gap" data-for="-research-gap">🔍 Research Gap</a></li><li class="depth-1"><a href="#-innovation-opportunities" data-for="-innovation-opportunities">💡 Innovation Opportunities</a></li><li class="depth-1"><a href="#️-suggested-architecture" data-for="️-suggested-architecture">⚙️ Suggested Architecture</a></li><li class="depth-1"><a href="#-tech-stack" data-for="-tech-stack">🧰 Tech Stack</a></li><li class="depth-1"><a href="#-ai-component" data-for="-ai-component">🧠 AI Component</a></li><li class="depth-1"><a href="#-dataset-availability" data-for="-dataset-availability">📊 Dataset Availability</a></li><li class="depth-1"><a href="#-research-papers-20232026" data-for="-research-papers-20232026">📄 Research Papers (2023–2026)</a></li><li class="depth-1"><a href="#-evaluation-metrics" data-for="-evaluation-metrics">🎯 Evaluation Metrics</a></li><li class="depth-1"><a href="#-novel-features" data-for="-novel-features">✨ Novel Features</a></li><li class="depth-1"><a href="#-expected-deliverables" data-for="-expected-deliverables">📦 Expected Deliverables</a></li><li class="depth-1"><a href="#️-risks--mitigations" data-for="️-risks--mitigations">⚠️ Risks &amp; Mitigations</a></li><li class="depth-1"><a href="#-resume-value" data-for="-resume-value">📈 Resume Value</a></li><li class="depth-1"><a href="#-future-scope" data-for="-future-scope">🚀 Future Scope</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script src="../../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../../postscript-3426b91c.js" type="module" data-persist="true"></script></html>
